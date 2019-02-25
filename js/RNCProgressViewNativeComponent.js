@@ -30,5 +30,5 @@ type NativeProps = $ReadOnly<{|
 type NativeProgressViewIOS = Class<NativeComponent<NativeProps>>;
 
 module.exports = ((requireNativeComponent(
-  'RCTProgressView',
+  'RNCProgressView',
 ): any): NativeProgressViewIOS);
