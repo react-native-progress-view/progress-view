@@ -8,22 +8,24 @@
  * @flow
  */
 
-'use strict';
+"use strict";
 
-const React = require('react');
-const ReactNative = require('react-native');
-const {ProgressViewIOS, StyleSheet, View} = ReactNative;
+import { name as appName } from "./app.json";
+
+const React = require("react");
+const ReactNative = require("react-native");
+const { AppRegistry, ProgressViewIOS, StyleSheet, View } = ReactNative;
 
 type Props = {||};
 type State = {|
-  progress: number,
+  progress: number
 |};
 
 class ProgressViewExample extends React.Component<Props, State> {
   _rafId: ?AnimationFrameID = null;
 
   state = {
-    progress: 0,
+    progress: 0
   };
 
   componentDidMount() {
@@ -38,7 +40,7 @@ class ProgressViewExample extends React.Component<Props, State> {
 
   updateProgress = () => {
     const progress = this.state.progress + 0.01;
-    this.setState({progress});
+    this.setState({ progress });
     this._rafId = requestAnimationFrame(() => this.updateProgress());
   };
 
@@ -85,22 +87,24 @@ class ProgressViewExample extends React.Component<Props, State> {
 const styles = StyleSheet.create({
   container: {
     marginTop: -20,
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent"
   },
   progressView: {
-    marginTop: 20,
-  },
+    marginTop: 20
+  }
 });
 
 exports.displayName = (undefined: ?string);
-exports.framework = 'React';
-exports.title = 'ProgressViewIOS';
-exports.description = 'ProgressViewIOS';
+exports.framework = "React";
+exports.title = "ProgressViewIOS";
+exports.description = "ProgressViewIOS";
 exports.examples = [
   {
-    title: 'ProgressViewIOS',
+    title: "ProgressViewIOS",
     render() {
       return <ProgressViewExample />;
-    },
-  },
+    }
+  }
 ];
+
+AppRegistry.registerComponent(appName, () => ProgressViewExample);
