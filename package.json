@@ -12,8 +12,7 @@
   "scripts": {
     "run:ios": "node node_modules/react-native/local-cli/cli.js run-ios --project-path \"./example/ios\"",
     "start": "node node_modules/react-native/local-cli/cli.js start --projectRoot example --watchFolders $PWD",
-    "flow": "flow",
-    "prepare": "bob build"
+    "flow": "flow"
   },
   "peerDependencies": {
     "react": "^16.8.3",
@@ -23,7 +22,6 @@
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/runtime": "^7.4.3",
-    "@react-native-community/bob": "^0.3.4",
     "babel-jest": "24.7.1",
     "babel-plugin-module-resolver": "^3.2.0",
     "flow-bin": "^0.86.0",
@@ -39,19 +37,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/react-native-community/react-native-progress-view.git"
-  },
-  "@react-native-community/bob": {
-    "source": "js",
-    "output": "lib",
-    "targets": [
-      [
-        "commonjs",
-        {
-          "flow": true
-        }
-      ],
-      "module"
-    ]
   },
   "keywords": [
     "react-native",

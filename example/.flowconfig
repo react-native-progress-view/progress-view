@@ -1,6 +1,3 @@
-; Ignore the compiled files
-lib/.*
-
 [ignore]
 ; We fork some components by platform
 .*/*[.]android.js
