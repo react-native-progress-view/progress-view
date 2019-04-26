@@ -9,10 +9,8 @@
 
 'use strict';
 
-const React = require('React');
-const StyleSheet = require('StyleSheet');
-const Text = require('Text');
-const View = require('View');
+import * as React from 'react';
+import {Text, View, StyleSheet} from 'react-native';
 
 class DummyProgressViewIOS extends React.Component {
   render() {
@@ -43,4 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-module.exports = DummyProgressViewIOS;
+export default DummyProgressViewIOS;

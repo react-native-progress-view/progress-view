@@ -10,12 +10,12 @@
 
 'use strict';
 
-const requireNativeComponent = require('requireNativeComponent');
+import {requireNativeComponent} from 'react-native';
 
-import type {NativeComponent} from 'ReactNative';
-import type {ImageSource} from 'ImageSource';
-import type {ColorValue} from 'StyleSheetTypes';
-import type {ViewProps} from 'ViewPropTypes';
+import type {NativeComponent} from 'react-native/Libraries/Renderer/shims/ReactNative';
+import type {ImageSource} from 'react-native/Libraries/Image/ImageSource';
+import type {ColorValue} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+import type {ViewProps} from 'react-native/Libraries/Components/View/ViewPropTypes';
 
 type NativeProps = $ReadOnly<{|
   ...ViewProps,
@@ -29,6 +29,6 @@ type NativeProps = $ReadOnly<{|
 
 type NativeProgressViewIOS = Class<NativeComponent<NativeProps>>;
 
-module.exports = ((requireNativeComponent(
+export default ((requireNativeComponent(
   'RNCProgressView',
 ): any): NativeProgressViewIOS);

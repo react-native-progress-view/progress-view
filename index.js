@@ -1,6 +1,6 @@
 
 import { NativeModules } from 'react-native';
 
-const { RNCProgressview } = NativeModules;
+const { RNCProgressView } = NativeModules;
 
-export default RNCProgressview;
+export default RNCProgressView;
