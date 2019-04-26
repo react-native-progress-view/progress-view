@@ -2,13 +2,10 @@
   "name": "@react-native-community/react-native-progress-view",
   "version": "1.0.0",
   "description": "React Native Progress View iOS Library",
-  "main": "lib/commonjs/index.js",
-  "react-native": "js/index.js",
-  "module": "lib/module/index.js",
-  "files": [
-    "/js",
-    "/lib"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "js/index.js",
   "scripts": {
     "run:ios": "node node_modules/react-native/local-cli/cli.js run-ios --project-path \"./example/ios\"",
     "start": "node node_modules/react-native/local-cli/cli.js start --projectRoot example --watchFolders $PWD",
