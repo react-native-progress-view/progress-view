@@ -10,14 +10,14 @@
 
 'use strict';
 
-const React = require('React');
-const StyleSheet = require('StyleSheet');
+import * as React from 'react';
+import {StyleSheet, ColorValue} from 'react-native';
 
-const RNCProgressViewNativeComponent = require('RNCProgressViewNativeComponent');
+import RNCProgressViewNativeComponent from 'RNCProgressViewNativeComponent';
 
-import type {ImageSource} from 'ImageSource';
-import type {ColorValue} from 'StyleSheetTypes';
-import type {ViewProps} from 'ViewPropTypes';
+import type {ImageSource} from 'react-native/Libraries/Image/ImageSource';
+import type {ColorValue} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+import type {ViewProps} from 'react-native/Libraries/Components/View/ViewPropTypes';
 
 type Props = $ReadOnly<{|
   ...ViewProps,
@@ -73,9 +73,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const ProgressViewIOSWithRef = React.forwardRef(ProgressViewIOS);
+const ProgressViewIOSWithRef = forwardRef(ProgressViewIOS);
 
 /* $FlowFixMe(>=0.89.0 site=react_native_ios_fb) This comment suppresses an
  * error found when Flow v0.89 was deployed. To see the error, delete this
  * comment and run Flow. */
-module.exports = (ProgressViewIOSWithRef: RNCProgressViewNativeComponent);
+export default (ProgressViewIOSWithRef: RNCProgressViewNativeComponent);
