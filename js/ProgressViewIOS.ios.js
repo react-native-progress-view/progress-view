@@ -13,7 +13,7 @@
 import * as React from 'react';
 import {StyleSheet} from 'react-native';
 
-import RNCProgressViewNativeComponent from 'RNCProgressViewNativeComponent';
+import RNCProgressViewNativeComponent from './RNCProgressViewNativeComponent';
 
 import type {ImageSource} from 'react-native/Libraries/Image/ImageSource';
 import type {ColorValue} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ProgressViewIOSWithRef = forwardRef(ProgressViewIOS);
+const ProgressViewIOSWithRef = React.forwardRef(ProgressViewIOS);
 
 /* $FlowFixMe(>=0.89.0 site=react_native_ios_fb) This comment suppresses an
  * error found when Flow v0.89 was deployed. To see the error, delete this
