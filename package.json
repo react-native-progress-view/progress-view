@@ -1,0 +1,41 @@
+{
+  "name": "@react-native-community/react-native-progress-view",
+  "version": "1.0.0",
+  "description": "React Native Progress View iOS Library",
+  "main": "js/index.js",
+  "scripts": {
+    "run:ios": "node node_modules/react-native/local-cli/cli.js run-ios --project-path \"./example/ios\"",
+    "start": "node node_modules/react-native/local-cli/cli.js start --projectRoot example --watchFolders $PWD",
+    "flow": "flow"
+  },
+  "peerDependencies": {
+    "react": "^16.8.3",
+    "react-native": ">=0.59.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
+    "babel-jest": "24.7.1",
+    "babel-plugin-module-resolver": "^3.1.3",
+    "flow-bin": "^0.86.0",
+    "jest": "24.7.1",
+    "metro-react-native-babel-preset": "0.53.1",
+    "react": "16.8.3",
+    "react-native": "0.59.5",
+    "react-test-renderer": "16.8.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/react-native-community/react-native-progress-view.git"
+  },
+  "keywords": [
+    "ProgressViewIOS",
+    "react-native"
+  ],
+  "author": "Kaiden Sin <ksnz93@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/react-native-community/react-native-progress-view#readme"
+}
