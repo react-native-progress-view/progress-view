@@ -23,20 +23,21 @@ It was part of React Native Core.
 ## Usage
 
 ```javascript
-import RNCProgressview from 'react-native-progressview';
+import RNCProgressview from "react-native-progressview";
+```
 
 ## Reference
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`progress`](progressviewios.md#progress)
-- [`progressImage`](progressviewios.md#progressimage)
-- [`progressTintColor`](progressviewios.md#progresstintcolor)
-- [`progressViewStyle`](progressviewios.md#progressviewstyle)
-- [`trackImage`](progressviewios.md#trackimage)
-- [`trackTintColor`](progressviewios.md#tracktintcolor)
+* [`progress`](progressviewios.md#progress)
+* [`progressImage`](progressviewios.md#progressimage)
+* [`progressTintColor`](progressviewios.md#progresstintcolor)
+* [`progressViewStyle`](progressviewios.md#progressviewstyle)
+* [`trackImage`](progressviewios.md#trackimage)
+* [`trackTintColor`](progressviewios.md#tracktintcolor)
 
 ---
 
@@ -101,7 +102,6 @@ The tint color of the progress bar track.
 | Type   | Required |
 | ------ | -------- |
 | string | No       |
-```
 
 ## Contributors
 
