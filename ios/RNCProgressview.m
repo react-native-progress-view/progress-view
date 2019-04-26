@@ -1,7 +1,7 @@
 
-#import "RNCProgressview.h"
+#import "RNCProgressView.h"
 
-@implementation RNCProgressview
+@implementation RNCProgressView
 
 - (dispatch_queue_t)methodQueue
 {

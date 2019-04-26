@@ -6,17 +6,17 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 
-public class RNCProgressviewModule extends ReactContextBaseJavaModule {
+public class RNCProgressViewModule extends ReactContextBaseJavaModule {
 
   private final ReactApplicationContext reactContext;
 
-  public RNCProgressviewModule(ReactApplicationContext reactContext) {
+  public RNCProgressViewModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
   }
 
   @Override
   public String getName() {
-    return "RNCProgressview";
+    return "RNCProgressView";
   }
 }

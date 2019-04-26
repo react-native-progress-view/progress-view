@@ -5,7 +5,7 @@
 #import <React/RCTBridgeModule.h>
 #endif
 
-@interface RNCProgressview : NSObject <RCTBridgeModule>
+@interface RNCProgressView : NSObject <RCTBridgeModule>
 
 @end
   
