@@ -11,7 +11,7 @@
 'use strict';
 
 import * as React from 'react';
-import {StyleSheet, ColorValue} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 import RNCProgressViewNativeComponent from 'RNCProgressViewNativeComponent';
 
