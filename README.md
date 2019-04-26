@@ -1,29 +1,29 @@
-# react-native-progressview
+# @react-native-community/react-native-progress-view
 
 Use `ProgressViewIOS` to render a UIProgressView on iOS.
 It was part of React Native Core.
 
 ## Getting started
 
-`$ npm install react-native-progressview --save`
+`$ npm install @react-native-community/react-native-progress-view --save`
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-progressview`
+`$ react-native link @react-native-community/react-native-progress-view`
 
 ### Manual installation
 
 #### iOS
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `react-native-progressview` and add `RNCProgressView.xcodeproj`
+2. Go to `node_modules` ➜ `@react-native-community/react-native-progress-view` and add `RNCProgressView.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNCProgressView.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)<
 
 ## Usage
 
 ```javascript
-import RNCProgressView from "react-native-progressview";
+import ProgressView from "@react-native-community/react-native-progress-view";
 ```
 
 ## Reference
