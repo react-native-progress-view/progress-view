@@ -30,14 +30,14 @@ import ProgressView from "@react-native-community/react-native-progress-view";
 
 ### Props
 
-- [View props...](view.md#props)
+- [Inherited `View` props...](https://facebook.github.io/react-native/docs/view#props)
 
-* [`progress`](progressviewios.md#progress)
-* [`progressImage`](progressviewios.md#progressimage)
-* [`progressTintColor`](progressviewios.md#progresstintcolor)
-* [`progressViewStyle`](progressviewios.md#progressviewstyle)
-* [`trackImage`](progressviewios.md#trackimage)
-* [`trackTintColor`](progressviewios.md#tracktintcolor)
+* [`progress`](#progress)
+* [`progressImage`](#progressimage)
+* [`progressTintColor`](#progresstintcolor)
+* [`progressViewStyle`](#progressviewstyle)
+* [`trackImage`](#trackimage)
+* [`trackTintColor`](#tracktintcolor)
 
 ---
 
