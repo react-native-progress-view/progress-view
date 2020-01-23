@@ -20,9 +20,12 @@
     "android",
     "ios",
     "js",
-    "react-native-progress-view.podspec"
+    "react-native-progress-view.podspec",
+    "index.js",
+    "index.d.ts"
   ],
-  "main": "js/index.js",
+  "main": "index.js",
+  "types":"index.d.ts",
   "scripts": {
     "flow": "flow",
     "lint": "eslint .",
