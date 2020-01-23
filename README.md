@@ -6,7 +6,9 @@
 [![MIT License][license-badge]][license]
 [![Lean Core Badge][lean-core-badge]][lean-core-issue]
 
-Use `ProgressViewIOS` to render a UIProgressView on iOS.
+ProgressBar Component for iOS, based on UIProgressView.
+
+<img src="https://user-images.githubusercontent.com/6936373/73007429-e09dd500-3e4f-11ea-85dd-ce06be668975.png" width="320"/>
 
 ## Getting started
 
