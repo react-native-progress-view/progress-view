@@ -20,15 +20,19 @@
     "android",
     "ios",
     "js",
-    "react-native-progress-view.podspec"
+    "react-native-progress-view.podspec",
+    "index.js",
+    "index.d.ts"
   ],
-  "main": "js/index.js",
+  "main": "index.js",
+  "types":"index.d.ts",
   "scripts": {
     "flow": "flow",
     "lint": "eslint .",
     "run:ios": "node node_modules/react-native/local-cli/cli.js run-ios --project-path \"./example/ios\"",
     "start": "node node_modules/react-native/local-cli/cli.js start --projectRoot example --watchFolders $PWD",
-    "test": "jest"
+    "test": "jest",
+    "type-check":"tsc --noEmit"
   },
   "jest": {
     "preset": "react-native"
@@ -39,6 +43,8 @@
     "@babel/runtime": "^7.4.3",
     "@react-native-community/eslint-config": "^0.0.6",
     "@react-native-community/eslint-plugin": "^1.0.0",
+    "@types/react": "^16.9.19",
+    "@types/react-native": "^0.61.2",
     "babel-jest": "24.7.1",
     "babel-plugin-module-resolver": "^3.2.0",
     "eslint": "^6.8.0",
@@ -49,7 +55,8 @@
     "prettier": "^1.19.1",
     "react": "16.8.3",
     "react-native": "^0.61.5",
-    "react-test-renderer": "16.8.3"
+    "react-test-renderer": "16.8.3",
+    "typescript": "^3.7.5"
   },
   "peerDependencies": {
     "react": "^16.8.3",

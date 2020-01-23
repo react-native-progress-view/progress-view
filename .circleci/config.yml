@@ -135,10 +135,9 @@ workflows:
       - eslint:
           requires:
             - linux-checkout
-      # TODO: implement typescript types
-      # - type-check:
-      #     requires:
-      #     - linux-checkout      
+      - type-check:
+          requires:
+          - linux-checkout      
       - jest:
           requires:
             - linux-checkout
