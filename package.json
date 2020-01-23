@@ -10,6 +10,7 @@
     "run:ios": "node node_modules/react-native/local-cli/cli.js run-ios --project-path \"./example/ios\"",
     "start": "node node_modules/react-native/local-cli/cli.js start --projectRoot example --watchFolders $PWD",
     "flow": "flow",
+    "test":"jest",
     "lint": "eslint ."
   },
   "peerDependencies": {
@@ -27,7 +28,7 @@
     "eslint": "^6.8.0",
     "eslint-plugin-prettier": "^3.1.2",
     "flow-bin": "0.105.2",
-    "jest": "24.7.1",
+    "jest": "^25.1.0",
     "metro-react-native-babel-preset": "0.53.1",
     "prettier": "^1.19.1",
     "react": "16.8.3",

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProgressView /> renders Horizontal ProgressView 1`] = `
+<RNCProgressView
+  progressViewStyle="bar"
+  style={
+    Array [
+      Object {
+        "height": 2,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`<ProgressView /> renders ProgressView with tintColor 1`] = `
+<RNCProgressView
+  progressTintColor="red"
+  style={
+    Array [
+      Object {
+        "height": 2,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`<ProgressView /> renders enabled ProgressView 1`] = `
+<RNCProgressView
+  style={
+    Array [
+      Object {
+        "height": 2,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
