@@ -128,11 +128,10 @@ workflows:
       # TODO: implement typescript types
       # - type-check:
       #     requires:
-      #     - linux-checkout
-      # TODO: implement test
-      # - jest:
-      #     requires:
-      #       - linux-checkout
+      #     - linux-checkout      
+      - jest:
+          requires:
+            - linux-checkout
       - flow:
           requires:
             - linux-checkout
