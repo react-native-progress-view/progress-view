@@ -1,4 +1,4 @@
-# @react-native-community/react-native-progress-view
+# @react-native-community/progress-view
 
 [![Build Status][build-badge]][build]
 [![Version][version-badge]][package]
@@ -11,13 +11,13 @@ Use `ProgressViewIOS` to render a UIProgressView on iOS.
 ## Getting started
 
 ```
-$ npm install @react-native-community/react-native-progress-view --save
+$ npm install @react-native-community/progress-view --save
 ```
 
 or
 
 ```
-$ yarn add @react-native-community/react-native-progress-view
+$ yarn add @react-native-community/progress-view
 ```
 
 ### Linking
@@ -35,7 +35,7 @@ $ cd ios && pod install
 Run the following commands
 
 ```
-$ react-native link @react-native-community/react-native-progress-view
+$ react-native link @react-native-community/progress-view
 ```
 
 ### Manual installation
@@ -44,7 +44,7 @@ $ react-native link @react-native-community/react-native-progress-view
 <summary>Manually linking the library - iOS</summary>
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `@react-native-community/react-native-progress-view` and add `RNCProgressView.xcodeproj`
+2. Go to `node_modules` ➜ `@react-native-community/progress-view` and add `RNCProgressView.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNCProgressView.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project (`Cmd+R`)
 
@@ -53,7 +53,7 @@ $ react-native link @react-native-community/react-native-progress-view
 ## Usage
 
 ```javascript
-import ProgressView from "@react-native-community/react-native-progress-view";
+import ProgressView from "@react-native-community/progress-view";
 ```
 
 ## Reference
@@ -143,10 +143,10 @@ The library is released under the MIT license. For more information see [`LICENS
 
 [build-badge]: https://img.shields.io/circleci/project/github/react-native-community/react-native-progress-view/master.svg?style=flat-square
 [build]: https://circleci.com/gh/react-native-community/react-native-progress-view
-[version-badge]: https://img.shields.io/npm/v/@react-native-community/react-native-progress-view.svg?style=flat-square
-[package]: https://www.npmjs.com/package/@react-native-community/react-native-progress-view
+[version-badge]: https://img.shields.io/npm/v/@react-native-community/progress-view.svg?style=flat-square
+[package]: https://www.npmjs.com/package/@react-native-community/progress-view
 [support-badge]:https://img.shields.io/badge/platforms-ios-lightgrey.svg?style=flat-square
-[license-badge]: https://img.shields.io/npm/l/@react-native-community/react-native-progress-view.svg?style=flat-square
+[license-badge]: https://img.shields.io/npm/l/@react-native-community/progress-view.svg?style=flat-square
 [license]: https://opensource.org/licenses/MIT
 [lean-core-badge]: https://img.shields.io/badge/Lean%20Core-Extracted-brightgreen.svg?style=flat-square
 [lean-core-issue]: https://github.com/facebook/react-native/issues/23313

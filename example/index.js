@@ -13,7 +13,7 @@
 import {name as appName} from './app.json';
 import * as React from 'react';
 import {AppRegistry, StyleSheet, View} from 'react-native';
-import ProgressViewIOS from '@react-native-community/react-native-progress-view';
+import ProgressViewIOS from '@react-native-community/progress-view';
 
 type Props = {||};
 type State = {|
