@@ -53,7 +53,7 @@ $ react-native link @react-native-community/progress-view
 ## Usage
 
 ```javascript
-import ProgressView from "@react-native-community/progress-view";
+import {ProgressView} from "@react-native-community/progress-view";
 ```
 
 ## Reference
