@@ -1,5 +1,5 @@
 {
-  "name": "@react-native-community/react-native-progress-view",
+  "name": "@react-native-community/progress-view",
   "version": "1.0.0",
   "description": "React Native Progress View iOS Library",
   "publishConfig": {
