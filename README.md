@@ -145,8 +145,8 @@ The library is released under the MIT license. For more information see [`LICENS
 [build]: https://circleci.com/gh/react-native-community/react-native-progress-view
 [version-badge]: https://img.shields.io/npm/v/@react-native-community/react-native-progress-view.svg?style=flat-square
 [package]: https://www.npmjs.com/package/@react-native-community/react-native-progress-view
-[support-badge]:https://img.shields.io/badge/platforms-android-lightgrey.svg?style=flat-square
-[license-badge]: https://img.shields.io/npm/l/@react-native-community/progress-view.svg?style=flat-square
+[support-badge]:https://img.shields.io/badge/platforms-ios-lightgrey.svg?style=flat-square
+[license-badge]: https://img.shields.io/npm/l/@react-native-community/react-native-progress-view.svg?style=flat-square
 [license]: https://opensource.org/licenses/MIT
 [lean-core-badge]: https://img.shields.io/badge/Lean%20Core-Extracted-brightgreen.svg?style=flat-square
 [lean-core-issue]: https://github.com/facebook/react-native/issues/23313
