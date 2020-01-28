@@ -138,6 +138,7 @@ The tint color of the progress bar track.
 ## Contributors
 
 - [Kaiden Sin](https://github.com/kdenz) - [Passionate Product Maker and Coder](http://linkedin.com/in/kaiden)
+- [Jesse Katsumata](https://github.com/Naturalclar)
 
 ## License
 
