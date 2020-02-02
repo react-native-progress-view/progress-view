@@ -10,13 +10,17 @@ describe('<ProgressView />', () => {
   });
 
   it('renders Horizontal ProgressView', () => {
-    const tree = renderer.create(<ProgressView progressViewStyle="bar" />).toJSON();
+    const tree = renderer
+      .create(<ProgressView progressViewStyle="bar" />)
+      .toJSON();
 
     expect(tree).toMatchSnapshot();
   });
 
   it('renders ProgressView with tintColor', () => {
-    const tree = renderer.create(<ProgressView progressTintColor="red" />).toJSON();
+    const tree = renderer
+      .create(<ProgressView progressTintColor="red" />)
+      .toJSON();
 
     expect(tree).toMatchSnapshot();
   });
