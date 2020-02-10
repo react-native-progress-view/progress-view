@@ -144,8 +144,8 @@ The tint color of the progress bar track.
 
 The library is released under the MIT license. For more information see [`LICENSE`](/LICENSE).
 
-[build-badge]: https://img.shields.io/circleci/project/github/react-native-community/react-native-progress-view/master.svg?style=flat-square
-[build]: https://circleci.com/gh/react-native-community/react-native-progress-view
+[build-badge]: https://img.shields.io/circleci/project/github/react-native-community/progress-view/master.svg?style=flat-square
+[build]: https://circleci.com/gh/react-native-community/progress-view
 [version-badge]: https://img.shields.io/npm/v/@react-native-community/progress-view.svg?style=flat-square
 [package]: https://www.npmjs.com/package/@react-native-community/progress-view
 [support-badge]:https://img.shields.io/badge/platforms-ios-lightgrey.svg?style=flat-square
