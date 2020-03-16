@@ -62,7 +62,7 @@ import {ProgressView} from "@react-native-community/progress-view";
 
 ### Props
 
-- [Inherited `View` props...](https://facebook.github.io/react-native/docs/view#props)
+- [Inherited `View` props...](https://reactnative.dev/docs/view#props)
 
 * [`progress`](#progress)
 * [`progressImage`](#progressimage)
