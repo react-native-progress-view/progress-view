@@ -12,14 +12,14 @@ ProgressBar Component for iOS, based on UIProgressView.
 
 ## Getting started
 
-```
-$ npm install @react-native-community/progress-view --save
+```sh
+npm install @react-native-community/progress-view --save
 ```
 
 or
 
-```
-$ yarn add @react-native-community/progress-view
+```sh
+yarn add @react-native-community/progress-view
 ```
 
 ### Linking
@@ -28,16 +28,16 @@ $ yarn add @react-native-community/progress-view
 
  The package is [automatically linked](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) when building the app. All you need to do is:
 
-```
-$ cd ios && pod install
+```sh
+npx pod-install
 ```
 
 - React Native <= 0.59
 
 Run the following commands
 
-```
-$ react-native link @react-native-community/progress-view
+```sh
+react-native link @react-native-community/progress-view
 ```
 
 ### Manual installation
