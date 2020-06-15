@@ -1,6 +1,6 @@
 {
   "name": "@react-native-community/progress-view",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React Native Progress View iOS Library",
   "keywords": [
     "ProgressViewIOS",
@@ -20,39 +20,41 @@
     "android",
     "ios",
     "js",
-    "react-native-progress-view.podspec",
-    "index.js",
-    "index.d.ts"
+    "react-native-progress-view.podspec"
   ],
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "js/index.js",
+  "types": "js/index.d.ts",
   "scripts": {
     "flow": "flow",
     "lint": "eslint .",
-    "run:ios": "node node_modules/react-native/local-cli/cli.js run-ios --project-path \"./example/ios\"",
-    "start": "node node_modules/react-native/local-cli/cli.js start --projectRoot example --watchFolders $PWD",
+    "ios": "react-native run-ios --project-path \"./example/ios\"",
+    "start:windows": "react-native start --use-react-native-windows",
+    "android": "react-native run-android --root example",
+    "start": "react-native start",
     "test": "jest",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "windows": "react-native run-windows"
   },
   "jest": {
     "preset": "react-native"
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/runtime": "^7.4.3",
-    "@react-native-community/eslint-config": "^1.0.0",
+    "@babel/core": "^7.10.2",
+    "@babel/runtime": "^7.10.2",
+    "@react-native-community/eslint-config": "^2.0.0",
     "@types/react": "^16.9.19",
     "@types/react-native": "^0.61.2",
-    "babel-jest": "24.7.1",
+    "babel-jest": "25.1.0",
     "babel-plugin-module-resolver": "^3.2.0",
     "eslint": "^6.8.0",
-    "flow-bin": "0.105.2",
-    "jest": "^25.1.0",
-    "metro-react-native-babel-preset": "0.53.1",
-    "react": "16.8.3",
-    "react-native": "^0.61.5",
-    "react-test-renderer": "16.8.3",
+    "flow-bin": "^0.127.0",
+    "jest": "^26.0.1",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react": "16.13.1",
+    "react-native": "^0.63.0-rc.1",
+    "react-native-windows": "^0.62.0-0",
+    "react-test-renderer": "16.13.1",
     "typescript": "^3.8.3"
   },
   "peerDependencies": {

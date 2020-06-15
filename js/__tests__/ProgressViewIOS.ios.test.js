@@ -1,6 +1,6 @@
 import * as React from 'react';
 import renderer from 'react-test-renderer';
-import ProgressView from '../ProgressViewIOS.ios';
+import ProgressView from '../ProgressView.ios';
 
 describe('<ProgressView />', () => {
   it('renders enabled ProgressView', () => {

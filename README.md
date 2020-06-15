@@ -6,9 +6,11 @@
 [![MIT License][license-badge]][license]
 [![Lean Core Badge][lean-core-badge]][lean-core-issue]
 
-ProgressBar Component for iOS, based on UIProgressView.
+ProgressBar Component for iOS (based on UIProgressView) and Windows.
 
-<img src="https://user-images.githubusercontent.com/6936373/73007429-e09dd500-3e4f-11ea-85dd-ce06be668975.png" width="320"/>
+| iOS | Windows |
+| --- | --- |
+| <img src="https://user-images.githubusercontent.com/6936373/73007429-e09dd500-3e4f-11ea-85dd-ce06be668975.png" width="320"> | <img src="https://user-images.githubusercontent.com/42554868/87102503-fb4de580-c206-11ea-98f7-b9f911d115f8.gif" width="320" height="500"> >
 
 ## Getting started
 
@@ -40,8 +42,31 @@ Run the following commands
 react-native link @react-native-community/progress-view
 ```
 
+#### Windows
+##### Add the `progress-view` project to your solution.
+
+1. Open the solution in Visual Studio 2019
+2. Right-click Solution icon in Solution Explorer > Add > Existing Project
+   Select `node_modules\@react-native-community\progress-view\windows\progress-view\progress-view.vcxproj`
+
+##### **windows/myapp.sln**
+Add a reference to `progress-view` to your main application project. From Visual Studio 2019:
+
+Right-click main application project > Add > Reference...
+  Check `progress-view` from Solution Projects.
+
+##### **pch.h**
+
+Add `#include "winrt/progress_view.h"`.
+
+##### **app.cpp**
+
+Add `PackageProviders().Append(winrt::progress_view::ReactPackageProvider());` before `InitializeComponent();`.
+
+
 ### Manual installation
 
+#### IOS
 <details>
 <summary>Manually linking the library - iOS</summary>
 
@@ -54,9 +79,36 @@ react-native link @react-native-community/progress-view
 
 ## Usage
 
+Import ProgressView from `@react-native-community/progress-view`
+
 ```javascript
 import {ProgressView} from "@react-native-community/progress-view";
 ```
+Add ProgressView like this
+
+```jsx
+<ProgressView
+          progressTintColor="orange"
+          trackTintColor="blue"
+          progress={0.7}
+/>
+```
+
+### Running Example App
+
+#### Windows
+1. Clone branch 
+2. cd into progress_view and run `yarn install`
+3. run `yarn add react-native@0.62 --dev` (React Native Windows relies on a version of react-native lower than iOS)
+4. Start metro server with `yarn start:windows`
+5. Open Visual Studios and open `example/windows/ProgressViewExample.sln`
+6. Set to Debug x64 and start solution
+
+#### IOS
+1. Clone branch
+2. cd into progress-view and run `yarn install`
+2. cd into example/ios and run `pod install`
+4. cd back into progress-view and run `yarn ios`
 
 ## Reference
 
@@ -134,6 +186,15 @@ The tint color of the progress bar track.
 | Type   | Required |
 | ------ | -------- |
 | string | No       |
+
+### `isIndeterminate`
+
+Turns progress bar into an indeterminate progress bar
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| bool | No       | Windows      |
+
 
 ## Contributors
 

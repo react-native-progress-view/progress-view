@@ -1,25 +1,13 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @flow
- */
-
-'use strict';
-
-import {name as appName} from './app.json';
 import * as React from 'react';
-import {AppRegistry, StyleSheet, View} from 'react-native';
-import ProgressViewIOS from '@react-native-community/progress-view';
+import {StyleSheet, Text, SafeAreaView} from 'react-native';
+import {ProgressView} from '../js';
 
 type Props = {||};
 type State = {|
   progress: number,
 |};
 
-class ProgressViewExample extends React.Component<Props, State> {
+export class App extends React.Component<Props, State> {
   _rafId: ?AnimationFrameID = null;
 
   state = {
@@ -52,57 +40,47 @@ class ProgressViewExample extends React.Component<Props, State> {
 
   render() {
     return (
-      <View style={styles.container}>
-        <ProgressViewIOS
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.header}>ProgressView Example</Text>
+        <ProgressView
           style={styles.progressView}
           progress={this.getProgress(0)}
         />
-        <ProgressViewIOS
+        <ProgressView
           style={styles.progressView}
           progressTintColor="purple"
           progress={this.getProgress(0.2)}
         />
-        <ProgressViewIOS
+        <ProgressView
           style={styles.progressView}
           progressTintColor="red"
           progress={this.getProgress(0.4)}
         />
-        <ProgressViewIOS
+        <ProgressView
           style={styles.progressView}
           progressTintColor="orange"
           progress={this.getProgress(0.6)}
         />
-        <ProgressViewIOS
+        <ProgressView
           style={styles.progressView}
           progressTintColor="yellow"
           progress={this.getProgress(0.8)}
         />
-      </View>
+      </SafeAreaView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: -20,
+    flex: 1,
     backgroundColor: 'transparent',
   },
   progressView: {
     marginTop: 20,
   },
-});
-
-exports.displayName = (undefined: ?string);
-exports.framework = 'React';
-exports.title = 'ProgressViewIOS';
-exports.description = 'ProgressViewIOS';
-exports.examples = [
-  {
-    title: 'ProgressViewIOS',
-    render() {
-      return <ProgressViewExample />;
-    },
+  header: {
+    fontSize: 24,
+    fontWeight: '700',
   },
-];
-
-AppRegistry.registerComponent(appName, () => ProgressViewExample);
+});
