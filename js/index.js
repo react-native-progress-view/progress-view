@@ -1,3 +1,3 @@
 /* @flow */
 
-export {default} from './ProgressViewIOS.ios';
+export {default as ProgressView} from './ProgressViewIOS';
