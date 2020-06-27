@@ -1,8 +1,8 @@
 import React from 'react';
-import {ViewProps,ImageSourcePropType} from 'react-native';
+import {ViewProps, ImageSourcePropType} from 'react-native';
 
 export type ProgressViewProps = ViewProps & {
-    /**
+  /**
    * The progress bar style.
    */
   progressViewStyle?: 'default' | 'bar',
@@ -31,5 +31,5 @@ export type ProgressViewProps = ViewProps & {
    * A stretchable image to display behind the progress bar.
    */
   trackImage?: ImageSourcePropType,
-}
+};
 export class ProgressView extends React.Component<ProgressViewProps> {}

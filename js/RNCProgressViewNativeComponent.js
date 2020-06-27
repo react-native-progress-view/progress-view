@@ -11,7 +11,7 @@
 
 import {requireNativeComponent} from 'react-native';
 
-import type {NativeComponent} from 'react-native/Libraries/Renderer/shims/ReactNative';
+import type {HostComponent} from 'react-native/Libraries/Renderer/shims/ReactNativeTypes';
 import type {ImageSource} from 'react-native/Libraries/Image/ImageSource';
 import type {ColorValue} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 import type {ViewProps} from 'react-native/Libraries/Components/View/ViewPropTypes';
@@ -26,7 +26,7 @@ type NativeProps = $ReadOnly<{|
   trackImage?: ?ImageSource,
 |}>;
 
-type NativeProgressViewIOS = Class<NativeComponent<NativeProps>>;
+type NativeProgressViewIOS = HostComponent<NativeProps>;
 
 export default ((requireNativeComponent(
   'RNCProgressView',
