@@ -41,8 +41,10 @@ local.properties
 *.iml
 .project
 .settings
+.classpath
 
 # BUCK
 buck-out/
 \.buckd/
+!debug.keystore
 *.keystore

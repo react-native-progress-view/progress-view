@@ -28,7 +28,7 @@
     "flow": "flow",
     "lint": "eslint .",
     "ios": "react-native run-ios --project-path \"./example/ios\"",
-    "android": "react-native run-android",
+    "android": "react-native run-android --root example",
     "start": "react-native start",
     "test": "jest",
     "type-check": "tsc --noEmit"
