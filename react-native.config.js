@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * This cli config is needed for the coexistance of react-native and other
  * out-of-tree implementations such react-native-macos.
@@ -42,3 +43,11 @@ if (process.argv.includes(macSwitch)) {
     },
   };
 }
+=======
+module.exports = {
+  project: {
+    android: {sourceDir: './example/android'},
+    ios: {project: './example/ios/ProgressViewExample.xcodeproj'},
+  },
+};
+>>>>>>> 545733911ef7a6854df01639d982237482c16403
