@@ -21,6 +21,7 @@ namespace winrt {
 namespace winrt::progress_view::implementation {
 
     ProgressViewView::ProgressViewView(winrt::IReactContext const& reactContext) : m_reactContext(reactContext) {
+        //Added for readibility, 0/100 is progressbar default
         this->Minimum(0);
         this->Maximum(100);
     }

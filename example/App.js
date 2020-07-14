@@ -66,6 +66,7 @@ export class App extends React.Component<Props, State> {
           progressTintColor="yellow"
           progress={this.getProgress(0.8)}
         />
+        <ProgressView style={styles.progressView} isIndeterminate={true}/>
       </SafeAreaView>
     );
   }
