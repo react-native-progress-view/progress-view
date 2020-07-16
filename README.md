@@ -161,7 +161,7 @@ The tint color of the progress bar itself.
 
 ### `progressViewStyle`
 
-The progress bar style.
+The progress bar style. Network images only work on Windows.
 
 | Type                   | Required |
 | ---------------------- | -------- |
@@ -171,7 +171,7 @@ The progress bar style.
 
 ### `trackImage`
 
-A stretchable image to display behind the progress bar.
+A stretchable image to display behind the progress bar. Network images only work on Windows.
 
 | Type                   | Required |
 | ---------------------- | -------- |
