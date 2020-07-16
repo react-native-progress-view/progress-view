@@ -66,7 +66,17 @@ export class App extends React.Component<Props, State> {
           progressTintColor="yellow"
           progress={this.getProgress(0.8)}
         />
+
+        <Text style={styles.text}>isIndeterminate</Text>
         <ProgressView style={styles.progressView} isIndeterminate={true} />
+        <Text style={styles.text}>ProgressImage with local image</Text>
+        <ProgressView style={styles.progressView} progress={.5} progressImage={require('./test.png')}/>
+        <Text style={styles.text}>TrackImage with network image</Text>
+        <ProgressView style={styles.progressView} progress={.5} trackImage={{uri: 'https://homepages.cae.wisc.edu/~ece533/images/cat.png'}} />
+        <Text style={styles.text}>TrackTint Color</Text>
+        <ProgressView style={styles.progressView} progress={.8} trackTintColor={'red'} progressTintColor={'yellow'} />
+        <Text style={styles.text}>Bar Style</Text>
+        <ProgressView style={styles.progressView} progress={.4} progressViewStyle={'bar'} />
       </SafeAreaView>
     );
   }
@@ -83,5 +93,10 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 24,
     fontWeight: '700',
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: '500',
+    marginTop: 10,
   },
 });

@@ -41,8 +41,8 @@ namespace winrt::progress_view::implementation {
         nativeProps.Insert(L"progressTintColor", ViewManagerPropertyType::Color);
         nativeProps.Insert(L"trackTintColor", ViewManagerPropertyType::Color);
         nativeProps.Insert(L"progressViewStyle", ViewManagerPropertyType::String);
-        nativeProps.Insert(L"progressImage", ViewManagerPropertyType::String);
-        nativeProps.Insert(L"trackImage", ViewManagerPropertyType::String);
+        nativeProps.Insert(L"progressImage", ViewManagerPropertyType::Map);
+        nativeProps.Insert(L"trackImage", ViewManagerPropertyType::Map);
         nativeProps.Insert(L"isIndeterminate", ViewManagerPropertyType::Boolean);
 
         return nativeProps.GetView();

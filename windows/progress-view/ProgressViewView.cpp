@@ -52,20 +52,24 @@ namespace winrt::progress_view::implementation {
                 this->IsIndeterminate(propertyValue.AsBoolean());
             }
             else if (propertyName == "progressImage") {
-                Uri uri = Uri(to_hstring(propertyValue.AsString()));
-                ImageBrush imgB = ImageBrush();
-                BitmapImage bitmap = BitmapImage();
-                imgB.ImageSource(bitmap);
-                bitmap.UriSource(uri);
-                this->Foreground(imgB);
+                if (!propertyValue.IsNull()) {
+                    auto imgUriString = propertyValue.AsObject()["uri"].AsString();
+                    BitmapImage bitmap = BitmapImage(Uri(to_hstring(imgUriString)));
+                    ImageBrush imgB = ImageBrush();
+                    imgB.ImageSource(bitmap);
+
+                    this->Foreground(imgB);
+                }
             }
             else if (propertyName == "trackImage") {
-                Uri uri = Uri(to_hstring(propertyValue.AsString()));
-                ImageBrush imgB = ImageBrush();
-                BitmapImage bitmap = BitmapImage();
-                imgB.ImageSource(bitmap);
-                bitmap.UriSource(uri);
-                this->Background(imgB);
+                if (!propertyValue.IsNull()) {
+                    auto imgUriString = propertyValue.AsObject()["uri"].AsString();
+                    BitmapImage bitmap = BitmapImage(Uri(to_hstring(imgUriString)));
+                    ImageBrush imgB = ImageBrush();
+                    imgB.ImageSource(bitmap);
+
+                    this->Background(imgB);
+                }
             }
         }
     }

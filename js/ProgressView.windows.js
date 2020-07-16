@@ -1,12 +1,12 @@
 /**
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License.
- * @format
+ * @formatyar
  * @flow strict-local
  */
 'use strict';
 
-import {requireNativeComponent, StyleSheet} from 'react-native';
+import {requireNativeComponent, StyleSheet, Image} from 'react-native';
 import type {WindowsNativeProps} from './RNCProgressViewNativeComponent';
 import * as React from 'react';
 
@@ -25,8 +25,8 @@ export default function ProgressViewWindows(props: WindowsNativeProps) {
     progressTintColor: props.progressTintColor,
     trackTintColor: props.trackTintColor,
     isIndeterminate: props.isIndeterminate,
-    progressImage: props.progressImage,
-    trackImage: props.trackImage,
+    progressImage: Image.resolveAssetSource(props.progressImage),
+    trackImage: Image.resolveAssetSource(props.trackImage),
     style: [styles.progressWindows, props.style],
   };
 
