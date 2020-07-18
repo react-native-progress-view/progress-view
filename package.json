@@ -28,17 +28,22 @@
     "flow": "flow",
     "lint": "eslint .",
     "ios": "react-native run-ios --project-path \"./example/ios\"",
+    "start:windows": "react-native start --use-react-native-windows",
     "android": "react-native run-android --root example",
     "start": "react-native start",
     "test": "jest",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "windows": "react-native run-windows"
   },
   "jest": {
     "preset": "react-native"
   },
-  "dependencies": {},
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-runtime": "^6.26.0"
+  },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
+    "@babel/core": "^7.10.4",
     "@babel/runtime": "^7.10.2",
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/react": "^16.9.19",
@@ -51,6 +56,7 @@
     "metro-react-native-babel-preset": "^0.59.0",
     "react": "16.13.1",
     "react-native": "^0.63.0-rc.1",
+    "react-native-windows": "^0.62.0-0",
     "react-test-renderer": "16.13.1",
     "typescript": "^3.8.3"
   },

@@ -26,6 +26,17 @@ type NativeProps = $ReadOnly<{|
   trackImage?: ?ImageSource,
 |}>;
 
+export type WindowsNativeProps = $ReadOnly<{|
+  ...ViewProps,
+  progressViewStyle?: ?('default' | 'bar'),
+  progress?: ?number,
+  progressTintColor?: ?ColorValue,
+  trackTintColor?: ?ColorValue,
+  progressImage?: ?ImageSource,
+  trackImage?: ?ImageSource,
+  isIndeterminate?: ?Boolean,
+|}>;
+
 type NativeProgressViewIOS = HostComponent<NativeProps>;
 
 export default ((requireNativeComponent(

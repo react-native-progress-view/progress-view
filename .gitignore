@@ -48,3 +48,6 @@ buck-out/
 \.buckd/
 !debug.keystore
 *.keystore
+
+#VS code
+.vscode/**
