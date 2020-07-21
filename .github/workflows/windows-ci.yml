@@ -1,5 +1,5 @@
 name: Windows CI
-on: [pull_request]
+on: [pull_request,push]
 
 jobs:
   run-windows-tests:
@@ -14,11 +14,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '12.9.1'
-
-    - name: Install Visual Studio components
-      shell: powershell
-      run: .\.github\workflows\scripts\install-vs-features.ps1 Microsoft.VisualStudio.Component.VC.v141.x86.x64,Microsoft.VisualStudio.ComponentGroup.UWP.VC.v141
-
+        
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.0.0
       with:
@@ -37,26 +33,30 @@ jobs:
           ${{ runner.os }}-yarn-
     - name: Install node modules
       if: steps.yarn-cache.outputs.cache-hit != 'true'
-      run: yarn --pure-lockfile
+      run: 
+        yarn add react-native@0.62 --dev
+        yarn --pure-lockfile
     
     - name: yarn build
       if: steps.yarn-cache.outputs.cache-hit == 'true'
       run: |
         yarn build
         yarn tsc
- 
+        
     - name: NuGet restore
       run: nuget restore example\windows\ProgressViewExample.sln
 
     - name: Build x64 release
-      run: msbuild example\windows\ProgressViewExample.sln /p:Configuration=Release /p:Platform=x64 -m
-
+      run: msbuild .\example\windows\ProgressViewExample.sln /p:Configuration=Release /p:Platform=x64 -m
+ 
     - name: Deploy
       shell: powershell
       run: |
         cd example
         Copy-Item -Path windows\x64\Release -Recurse -Destination windows\
         npx react-native run-windows --arch x64 --release --no-build --no-packager
+
+      
     - name: Start Appium server
       shell: powershell
       run: Start-Process PowerShell -ArgumentList "yarn appium"
