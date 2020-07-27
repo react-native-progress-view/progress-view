@@ -20,7 +20,7 @@
     "android",
     "ios",
     "js",
-     "windows",
+    "windows",
     "react-native-progress-view.podspec"
   ],
   "main": "js/index.js",
