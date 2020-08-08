@@ -18,6 +18,7 @@
     <PackageCertificateKeyFile>ProgressViewExample_TemporaryKey.pfx</PackageCertificateKeyFile>
     <PackageCertificateThumbprint>3A8F3D8AE21263D498BBEFD56EF6908E4B03496F</PackageCertificateThumbprint>
     <PackageCertificatePassword>password</PackageCertificatePassword>
+    <AppxPackageSigningEnabled>true</AppxPackageSigningEnabled>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <ItemGroup Label="ProjectConfigurations">
@@ -143,6 +144,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="PropertySheet.props" />
+    <None Include="ProgressViewExample_TemporaryKey.pfx" />
     <Text Include="readme.txt">
       <DeploymentContent>false</DeploymentContent>
     </Text>
@@ -153,6 +155,12 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <PropertyGroup>
+    <BundleEntryFile>index.js</BundleEntryFile>
+    <BundlerExtraArgs>--use-react-native-windows</BundlerExtraArgs>
+  </PropertyGroup>
+  <Import Project="..\..\..\node_modules\react-native-windows\PropertySheets\Bundle.props" />
+  <Import Project="..\..\..\node_modules\react-native-windows\PropertySheets\Bundle.Cpp.targets" />
   <PropertyGroup Label="ReactNativeWindowsNodeProps">
     <ReactNativeWindowsDir Condition="'$(ReactNativeWindowsDir)' == ''">$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), 'node_modules\react-native-windows\package.json'))\node_modules\react-native-windows\</ReactNativeWindowsDir>
   </PropertyGroup>

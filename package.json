@@ -20,7 +20,8 @@
     "android",
     "ios",
     "js",
-    "react-native-progress-view.podspec"
+    "react-native-progress-view.podspec",
+    "windows"
   ],
   "main": "js/index.js",
   "types": "js/index.d.ts",
@@ -31,9 +32,11 @@
     "start:windows": "react-native start --use-react-native-windows",
     "android": "react-native run-android --root example",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest js/__tests__/*",
     "type-check": "tsc --noEmit",
-    "windows": "react-native run-windows"
+    "windows": "react-native run-windows",
+    "appium": "appium",
+    "test:windows": "yarn jest --setupFiles=./jest-setups/jest.setup.windows.js"
   },
   "jest": {
     "preset": "react-native"
@@ -45,19 +48,26 @@
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/runtime": "^7.10.2",
+    "@react-native-community/cli": "^4.8.0",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@types/jest": "24.0.18",
     "@types/react": "^16.9.19",
     "@types/react-native": "^0.61.2",
+    "@types/selenium-webdriver": "4.0.9",
+    "appium": "1.17.0",
     "babel-jest": "25.1.0",
     "babel-plugin-module-resolver": "^3.2.0",
     "eslint": "^6.8.0",
     "flow-bin": "^0.127.0",
     "jest": "^26.0.1",
+    "metro": "0.56.4",
     "metro-react-native-babel-preset": "^0.59.0",
     "react": "16.13.1",
     "react-native": "^0.63.0-rc.1",
     "react-native-windows": "^0.62.0-0",
     "react-test-renderer": "16.13.1",
+    "selenium-appium": "0.0.15",
+    "selenium-webdriver": "4.0.0-alpha.7",
     "typescript": "^3.8.3"
   },
   "peerDependencies": {

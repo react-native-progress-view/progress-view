@@ -7,7 +7,7 @@
   IgnorableNamespaces="uap mp">
 
  <Identity
-    Name="a0fe1646-6d2d-45b5-bd15-05b556266ebe"
+    Name="ProgressViewExample"
     Publisher="CN=t-takapo"
     Version="1.0.0.0" />
 

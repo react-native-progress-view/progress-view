@@ -45,35 +45,45 @@ export class App extends React.Component<Props, State> {
         <ProgressView
           style={styles.progressView}
           progress={this.getProgress(0)}
+          testID={'p1'}
         />
         <ProgressView
           style={styles.progressView}
           progressTintColor="purple"
           progress={this.getProgress(0.2)}
+          testID={'p2'}
         />
         <ProgressView
           style={styles.progressView}
           progressTintColor="red"
           progress={this.getProgress(0.4)}
+          testID={'p3'}
         />
         <ProgressView
           style={styles.progressView}
           progressTintColor="orange"
           progress={this.getProgress(0.6)}
+          testID={'p4'}
         />
         <ProgressView
           style={styles.progressView}
           progressTintColor="yellow"
           progress={this.getProgress(0.8)}
+          testID={'p5'}
         />
 
         <Text style={styles.text}>isIndeterminate</Text>
-        <ProgressView style={styles.progressView} isIndeterminate={true} />
+        <ProgressView
+          style={styles.progressView}
+          isIndeterminate={true}
+          testID={'Indeterminate'}
+        />
         <Text style={styles.text}>ProgressImage with local image</Text>
         <ProgressView
           style={styles.progressView}
           progress={0.5}
           progressImage={require('./test.png')}
+          testID={'localimage'}
         />
         <Text style={styles.text}>TrackImage with network image</Text>
         {Platform.OS === 'windows' ? (
@@ -83,6 +93,7 @@ export class App extends React.Component<Props, State> {
             trackImage={{
               uri: 'https://homepages.cae.wisc.edu/~ece533/images/cat.png',
             }}
+            testID={'networkimage'}
           />
         ) : (
           <Text>Network Images only work on Windows</Text>
@@ -93,12 +104,14 @@ export class App extends React.Component<Props, State> {
           progress={0.8}
           trackTintColor={'red'}
           progressTintColor={'yellow'}
+          testID={'trackcolor'}
         />
         <Text style={styles.text}>Bar Style</Text>
         <ProgressView
           style={styles.progressView}
           progress={0.4}
           progressViewStyle={'bar'}
+          testID={'bar'}
         />
       </SafeAreaView>
     );
