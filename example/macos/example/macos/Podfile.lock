@@ -325,7 +325,7 @@ SPEC CHECKSUMS:
   React-jsi: 6af64a681279114b2a37039f590c1bac7a11716b
   React-jsiexecutor: 65cd05201df58879892a370bc1a3ea1294eeb503
   React-jsinspector: 4ba6b94e1d4b2cdc6b7bda202a86be2b342f95bd
-  react-native-progress-view: 120ed0edb2efc20a0bba2c12ac435e4dbbfcaf1a
+  react-native-progress-view: c0313acdf1c84b77f5d0f6edcb1905d872152486
   React-RCTActionSheet: cbdcd60a7cef8a90534717090906051fdbbe26d7
   React-RCTAnimation: 90be7a67a61129d9a7c989c7ebf68ed8140bd354
   React-RCTBlob: 26f0bf784f4bbfd8670244da2555fbcc17c6d3a9
