@@ -7,4 +7,3 @@ if (process.argv.includes(macSwitch)) {
     reactNativePath: 'node_modules/react-native-macos',
   };
 }
-∏
