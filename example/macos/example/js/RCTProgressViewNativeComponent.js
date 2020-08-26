@@ -10,9 +10,7 @@
 
 'use strict';
 
-import type { Float, WithDefault } from 'react-native-macos/Libraries/Types/CodegenTypes';
-import codegenNativeComponent, { NativeComponentType } from 'react-native-macos/Libraries/Utilities/codegenNativeComponent';
-
+import codegenNativeComponent from 'react-native-macos/Libraries/Utilities/codegenNativeComponent';
 
 type NativeProps = $ReadOnly<{|
   ...ViewProps,

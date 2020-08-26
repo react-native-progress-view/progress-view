@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import { ProgressView } from './js';
+import {StyleSheet, Text, View} from 'react-native';
+import {ProgressView} from './js';
 
 type Props = {||};
 type State = {|
