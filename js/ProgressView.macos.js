@@ -13,7 +13,7 @@
 const React = require('react');
 import {StyleSheet} from 'react-native';
 
-import RCTProgressViewNativeComponent from './RCTProgressViewNativeComponent';
+import RNCProgressViewNativeComponent from './RNCProgressViewNativeComponent';
 import type {ImageSource} from 'react-native/Libraries/Image/ImageSource';
 import type {ColorValue} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 import type {ViewProps} from 'react-native/Libraries/Components/View/ViewPropTypes';
