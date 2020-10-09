@@ -20,6 +20,7 @@
     "android",
     "ios",
     "js",
+    "macos",
     "react-native-progress-view.podspec",
     "windows"
   ],
