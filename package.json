@@ -29,7 +29,7 @@
     "flow": "flow",
     "lint": "eslint .",
     "ios": "react-native run-ios --project-path \"./example/ios\"",
-    "start:macos": "node node_modules/react-native-macos/local-cli/cli.js start --use-react-native-macos",
+    "start:macos": "react-native start --use-react-native-macos",
     "start:windows": "react-native start --use-react-native-windows",
     "android": "react-native run-android --root example",
     "start": "react-native start",
