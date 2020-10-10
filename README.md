@@ -1,6 +1,7 @@
 # @react-native-community/progress-view
 
 [![Build Status][build-badge]][build]
+[![Windows CI Status][windows-ci-badge]][build]
 [![Version][version-badge]][package]
 ![Platforms][support-badge]
 [![MIT License][license-badge]][license]
@@ -211,8 +212,9 @@ Turns progress bar into an indeterminate progress bar
 
 The library is released under the MIT license. For more information see [`LICENSE`](/LICENSE).
 
-[build-badge]: https://img.shields.io/circleci/project/github/react-native-community/progress-view/master.svg?style=flat-square
-[build]: https://circleci.com/gh/react-native-community/progress-view
+[build-badge]: https://github.com/react-native-community/progress-view/workflows/Build/badge.svg
+[windows-ci-badge]:https://github.com/react-native-community/progress-view/workflows/Windows%20CI/badge.svg
+[build]: https://github.com/react-native-community/progress-view/actions
 [version-badge]: https://img.shields.io/npm/v/@react-native-community/progress-view.svg?style=flat-square
 [package]: https://www.npmjs.com/package/@react-native-community/progress-view
 [support-badge]:https://img.shields.io/badge/platforms-ios%20|%20macos-lightgrey.svg?style=flat-square
