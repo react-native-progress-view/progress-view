@@ -55,10 +55,9 @@
     "appium": "1.17.0",
     "babel-jest": "25.1.0",
     "babel-plugin-module-resolver": "^3.2.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.14.0",
     "flow-bin": "^0.127.0",
     "jest": "^26.0.1",
-    "metro": "0.56.4",
     "metro-react-native-babel-preset": "^0.59.0",
     "react": "16.13.1",
     "react-native": "^0.63.0-rc.1",
@@ -68,6 +67,10 @@
     "selenium-appium": "0.0.15",
     "selenium-webdriver": "4.0.0-alpha.7",
     "typescript": "^3.8.3"
+  },
+  "resolutions": {
+    "jimp": "^0.10.0",
+    "hermes-engine": "0.5.0"
   },
   "peerDependencies": {
     "react": ">16.8.3",
