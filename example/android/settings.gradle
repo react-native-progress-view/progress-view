@@ -1,3 +1,6 @@
 rootProject.name = 'ProgressViewExample'
 
 include ':app'
+
+include ':progressview'
+project(':progressview').projectDir = new File(rootProject.projectDir, '../../android')
