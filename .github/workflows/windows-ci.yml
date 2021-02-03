@@ -9,19 +9,19 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       name: Checkout Code
-     
+
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
         node-version: '12.9.1'
         
     - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1.0.0
+      uses: microsoft/setup-msbuild@v1.0.2
       with:
         vs-version: 16.5
-       
+
     - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.0.2
+      uses: NuGet/setup-nuget@v1.0.5
 
     - name: Check node modules cache
       uses: actions/cache@v1
@@ -47,7 +47,7 @@ jobs:
       run: nuget restore example\windows\ProgressViewExample.sln
 
     - name: Build x64 release
-      run: msbuild .\example\windows\ProgressViewExample.sln /p:Configuration=Release /p:Platform=x64 -m
+      run: npx react-native run-windows --root example --arch x64 --release --no-packager --no-deploy --logging
  
     - name: Deploy
       shell: powershell

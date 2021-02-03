@@ -1,6 +1,6 @@
 {
   "name": "@react-native-community/progress-view",
-  "version": "1.1.1",
+  "version": "1.2.3",
   "description": "React Native Progress View iOS Library",
   "keywords": [
     "ProgressViewIOS",
@@ -20,6 +20,7 @@
     "android",
     "ios",
     "js",
+    "macos",
     "react-native-progress-view.podspec",
     "windows"
   ],
@@ -29,6 +30,7 @@
     "flow": "flow",
     "lint": "eslint .",
     "ios": "react-native run-ios --project-path \"./example/ios\"",
+    "start:macos": "react-native start --use-react-native-macos",
     "start:windows": "react-native start --use-react-native-windows",
     "android": "react-native run-android --root example",
     "start": "react-native start",
@@ -40,10 +42,6 @@
   },
   "jest": {
     "preset": "react-native"
-  },
-  "dependencies": {
-    "babel": "^6.23.0",
-    "babel-runtime": "^6.26.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
@@ -57,18 +55,22 @@
     "appium": "1.17.0",
     "babel-jest": "25.1.0",
     "babel-plugin-module-resolver": "^3.2.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.14.0",
     "flow-bin": "^0.127.0",
     "jest": "^26.0.1",
-    "metro": "0.56.4",
     "metro-react-native-babel-preset": "^0.59.0",
     "react": "16.13.1",
     "react-native": "^0.63.0-rc.1",
+    "react-native-macos": "^0.62.0-0",
     "react-native-windows": "^0.62.0-0",
     "react-test-renderer": "16.13.1",
     "selenium-appium": "0.0.15",
     "selenium-webdriver": "4.0.0-alpha.7",
     "typescript": "^3.8.3"
+  },
+  "resolutions": {
+    "jimp": "^0.10.0",
+    "hermes-engine": "0.5.0"
   },
   "peerDependencies": {
     "react": ">16.8.3",

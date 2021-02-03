@@ -1,0 +1,197 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09270F2A24EE04B1009EBB56 /* RNCProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 09270F2924EE04B1009EBB56 /* RNCProgressView.h */; };
+		09270F2C24EE04B1009EBB56 /* RNCProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 09270F2B24EE04B1009EBB56 /* RNCProgressView.m */; };
+		09270F3424EE054F009EBB56 /* RNCProgressViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 09270F3224EE054F009EBB56 /* RNCProgressViewManager.h */; };
+		09270F3524EE054F009EBB56 /* RNCProgressViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 09270F3324EE054F009EBB56 /* RNCProgressViewManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		09270F2624EE04B1009EBB56 /* libRNCProgressView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNCProgressView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		09270F2924EE04B1009EBB56 /* RNCProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNCProgressView.h; sourceTree = "<group>"; };
+		09270F2B24EE04B1009EBB56 /* RNCProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNCProgressView.m; sourceTree = "<group>"; };
+		09270F3224EE054F009EBB56 /* RNCProgressViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNCProgressViewManager.h; sourceTree = "<group>"; };
+		09270F3324EE054F009EBB56 /* RNCProgressViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNCProgressViewManager.m; sourceTree = "<group>"; };
+		0934EC1B24EF5BDA00151CF8 /* RNCProgressView.shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RNCProgressView.shared.xcconfig; sourceTree = "<group>"; };
+		0934EC1C24EF5BDA00151CF8 /* RNCProgressView.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RNCProgressView.release.xcconfig; sourceTree = "<group>"; };
+		0934EC1D24EF5BDA00151CF8 /* RNCProgressView.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RNCProgressView.debug.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		09270F2424EE04B0009EBB56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		09270F1D24EE04B0009EBB56 = {
+			isa = PBXGroup;
+			children = (
+				0934EC1E24EF5BDA00151CF8 /* config */,
+				09270F2924EE04B1009EBB56 /* RNCProgressView.h */,
+				09270F2B24EE04B1009EBB56 /* RNCProgressView.m */,
+				09270F3224EE054F009EBB56 /* RNCProgressViewManager.h */,
+				09270F3324EE054F009EBB56 /* RNCProgressViewManager.m */,
+				09270F2724EE04B1009EBB56 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		09270F2724EE04B1009EBB56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				09270F2624EE04B1009EBB56 /* libRNCProgressView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0934EC1E24EF5BDA00151CF8 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				0934EC1B24EF5BDA00151CF8 /* RNCProgressView.shared.xcconfig */,
+				0934EC1C24EF5BDA00151CF8 /* RNCProgressView.release.xcconfig */,
+				0934EC1D24EF5BDA00151CF8 /* RNCProgressView.debug.xcconfig */,
+			);
+			name = config;
+			path = "/Volumes/Source/react-native-community/progress-view/macos/config";
+			sourceTree = "<absolute>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		09270F2224EE04B0009EBB56 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09270F3424EE054F009EBB56 /* RNCProgressViewManager.h in Headers */,
+				09270F2A24EE04B1009EBB56 /* RNCProgressView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		09270F2524EE04B0009EBB56 /* RNCProgressView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09270F2F24EE04B1009EBB56 /* Build configuration list for PBXNativeTarget "RNCProgressView" */;
+			buildPhases = (
+				09270F2224EE04B0009EBB56 /* Headers */,
+				09270F2324EE04B0009EBB56 /* Sources */,
+				09270F2424EE04B0009EBB56 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RNCProgressView;
+			productName = RNCProgressView;
+			productReference = 09270F2624EE04B1009EBB56 /* libRNCProgressView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		09270F1E24EE04B0009EBB56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1160;
+				TargetAttributes = {
+					09270F2524EE04B0009EBB56 = {
+						CreatedOnToolsVersion = 11.6;
+					};
+				};
+			};
+			buildConfigurationList = 09270F2124EE04B0009EBB56 /* Build configuration list for PBXProject "RNCProgressView" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 09270F1D24EE04B0009EBB56;
+			productRefGroup = 09270F2724EE04B1009EBB56 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				09270F2524EE04B0009EBB56 /* RNCProgressView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		09270F2324EE04B0009EBB56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09270F2C24EE04B1009EBB56 /* RNCProgressView.m in Sources */,
+				09270F3524EE054F009EBB56 /* RNCProgressViewManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		09270F2D24EE04B1009EBB56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0934EC1D24EF5BDA00151CF8 /* RNCProgressView.debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		09270F2E24EE04B1009EBB56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0934EC1C24EF5BDA00151CF8 /* RNCProgressView.release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		09270F3024EE04B1009EBB56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0934EC1B24EF5BDA00151CF8 /* RNCProgressView.shared.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		09270F3124EE04B1009EBB56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0934EC1B24EF5BDA00151CF8 /* RNCProgressView.shared.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09270F2124EE04B0009EBB56 /* Build configuration list for PBXProject "RNCProgressView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09270F2D24EE04B1009EBB56 /* Debug */,
+				09270F2E24EE04B1009EBB56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		09270F2F24EE04B1009EBB56 /* Build configuration list for PBXNativeTarget "RNCProgressView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				09270F3024EE04B1009EBB56 /* Debug */,
+				09270F3124EE04B1009EBB56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 09270F1E24EE04B0009EBB56 /* Project object */;
+}
