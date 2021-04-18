@@ -15,7 +15,7 @@ import {StyleSheet} from 'react-native';
 import RNCProgressViewNativeComponent from './RNCProgressViewNativeComponent';
 
 import type {ImageSource} from 'react-native/Libraries/Image/ImageSource';
-import type {ColorValue} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+import type {ColorValue} from 'react-native/Libraries/StyleSheet/StyleSheet';
 import type {ViewProps} from 'react-native/Libraries/Components/View/ViewPropTypes';
 
 type Props = $ReadOnly<{|
