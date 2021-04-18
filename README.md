@@ -7,11 +7,11 @@
 [![MIT License][license-badge]][license]
 [![Lean Core Badge][lean-core-badge]][lean-core-issue]
 
-ProgressBar Component for macOS, iOS (based on UIProgressView), and Windows.
+ProgressBar Component for macOS, iOS (based on UIProgressView), Android, and Windows.
 
-| macOS | iOS | Windows |
-| ----- | --- | --- |
-| <img src="https://user-images.githubusercontent.com/717674/90926972-0325ab80-e3a9-11ea-86e3-1f9ca6df60f3.png" width="480"> | <img src="https://user-images.githubusercontent.com/6936373/73007429-e09dd500-3e4f-11ea-85dd-ce06be668975.png" width="320"> | <img src="https://user-images.githubusercontent.com/42554868/87102503-fb4de580-c206-11ea-98f7-b9f911d115f8.gif" width="320" height="500"> >
+| macOS | iOS | Android | Windows |
+| ----- | --- | --- | ---- | 
+| <img src="https://user-images.githubusercontent.com/717674/90926972-0325ab80-e3a9-11ea-86e3-1f9ca6df60f3.png" width="480"> | <img src="https://user-images.githubusercontent.com/6936373/73007429-e09dd500-3e4f-11ea-85dd-ce06be668975.png" width="320"> | <img src="https://user-images.githubusercontent.com/6936373/115140628-25281880-a073-11eb-8ff3-28c958042e6e.png" width="320"> | <img src="https://user-images.githubusercontent.com/42554868/87102503-fb4de580-c206-11ea-98f7-b9f911d115f8.gif" width="320" height="500"> > |
 
 ## Getting started
 
@@ -217,7 +217,7 @@ The library is released under the MIT license. For more information see [`LICENS
 [build]: https://github.com/react-native-community/progress-view/actions
 [version-badge]: https://img.shields.io/npm/v/@react-native-community/progress-view.svg?style=flat-square
 [package]: https://www.npmjs.com/package/@react-native-community/progress-view
-[support-badge]:https://img.shields.io/badge/platforms-ios%20|%20macos-lightgrey.svg?style=flat-square
+[support-badge]:https://img.shields.io/badge/platforms-ios%20|%20android%20|%20macos%20|%20windows-lightgrey.svg?style=flat-square
 [license-badge]: https://img.shields.io/npm/l/@react-native-community/progress-view.svg?style=flat-square
 [license]: https://opensource.org/licenses/MIT
 [lean-core-badge]: https://img.shields.io/badge/Lean%20Core-Extracted-brightgreen.svg?style=flat-square
