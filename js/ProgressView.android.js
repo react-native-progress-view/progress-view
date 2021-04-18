@@ -9,35 +9,19 @@
 'use strict';
 
 import * as React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {requireNativeComponent} from 'react-native';
 
-class DummyProgressViewIOS extends React.Component {
-  render() {
-    return (
-      <View style={[styles.dummy, this.props.style]}>
-        <Text style={styles.text}>
-          ProgressViewIOS is not supported on this platform!
-        </Text>
-      </View>
-    );
-  }
+const RNCProgressView = requireNativeComponent('RNCProgressView');
+
+export default function ProgressView(props) {
+  const nativeProps = {
+    testID: props.testID,
+    progress: props.progress,
+    progressTintColor: props.progressTintColor,
+    trackTintColor: props.trackTintColor,
+    isIndeterminate: props.isIndeterminate,
+    style: [{height: 20}, props.style],
+  };
+
+  return <RNCProgressView {...nativeProps} />;
 }
-
-const styles = StyleSheet.create({
-  dummy: {
-    width: 120,
-    height: 20,
-    backgroundColor: '#ffbcbc',
-    borderWidth: 1,
-    borderColor: 'red',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    color: '#333333',
-    margin: 5,
-    fontSize: 10,
-  },
-});
-
-export default DummyProgressViewIOS;
