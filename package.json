@@ -16,6 +16,8 @@
   },
   "license": "MIT",
   "author": "Kaiden Sin <ksnz93@gmail.com>",
+  "main": "js/index.js",
+  "types": "js/index.d.ts",
   "files": [
     "android",
     "ios",
@@ -24,53 +26,50 @@
     "react-native-progress-view.podspec",
     "windows"
   ],
-  "main": "js/index.js",
-  "types": "js/index.d.ts",
   "scripts": {
+    "android": "react-native run-android --root example",
+    "appium": "appium",
     "flow": "flow",
-    "lint": "eslint .",
     "ios": "react-native run-ios --project-path \"./example/ios\"",
+    "lint": "eslint .",
+    "start": "react-native start",
     "start:macos": "react-native start --use-react-native-macos",
     "start:windows": "react-native start --use-react-native-windows",
-    "android": "react-native run-android --root example",
-    "start": "react-native start",
     "test": "jest js/__tests__/*",
+    "test:windows": "yarn jest --setupFiles=./jest-setups/jest.setup.windows.js",
     "type-check": "tsc --noEmit",
-    "windows": "react-native run-windows",
-    "appium": "appium",
-    "test:windows": "yarn jest --setupFiles=./jest-setups/jest.setup.windows.js"
+    "windows": "react-native run-windows"
   },
   "jest": {
     "preset": "react-native"
   },
+  "resolutions": {
+    "metro":"0.64.0",
+    "jimp": "^0.10.0"
+  },
   "devDependencies": {
-    "@babel/core": "^7.10.4",
-    "@babel/runtime": "^7.10.2",
-    "@react-native-community/cli": "^4.8.0",
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
-    "@types/jest": "24.0.18",
-    "@types/react": "^16.9.19",
+    "@types/jest": "^26.0.22",
+    "@types/react": "^17.0.3",
     "@types/react-native": "^0.61.2",
     "@types/selenium-webdriver": "4.0.9",
     "appium": "1.17.0",
-    "babel-jest": "25.1.0",
+    "babel-jest": "^26.6.3",
     "babel-plugin-module-resolver": "^3.2.0",
     "eslint": "^7.14.0",
     "flow-bin": "^0.127.0",
-    "jest": "^26.0.1",
-    "metro-react-native-babel-preset": "^0.59.0",
-    "react": "16.13.1",
-    "react-native": "^0.63.0-rc.1",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.64.0",
+    "react": "17.0.1",
+    "react-native": "0.64.0",
     "react-native-macos": "^0.62.0-0",
     "react-native-windows": "^0.62.0-0",
-    "react-test-renderer": "16.13.1",
+    "react-test-renderer": "17.0.1",
     "selenium-appium": "0.0.15",
     "selenium-webdriver": "4.0.0-alpha.7",
     "typescript": "^3.8.3"
-  },
-  "resolutions": {
-    "jimp": "^0.10.0",
-    "hermes-engine": "0.5.0"
   },
   "peerDependencies": {
     "react": ">16.8.3",
