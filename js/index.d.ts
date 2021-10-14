@@ -1,5 +1,5 @@
 import React from 'react';
-import {ViewProps, ImageSourcePropType} from 'react-native';
+import {ViewProps, ImageSourcePropType, ColorValue} from 'react-native';
 
 export type ProgressViewProps = ViewProps & {
   /**
@@ -15,12 +15,12 @@ export type ProgressViewProps = ViewProps & {
   /**
    * The tint color of the progress bar itself.
    */
-  progressTintColor?: string,
+  progressTintColor?: ColorValue,
 
   /**
    * The tint color of the progress bar track.
    */
-  trackTintColor?: string,
+  trackTintColor?: ColorValue,
 
   /**
    * A stretchable image to display as the progress bar.
