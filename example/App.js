@@ -2,6 +2,7 @@ import * as React from 'react';
 import {StyleSheet, Text, SafeAreaView, Platform} from 'react-native';
 import {ProgressView} from '../js';
 
+
 type Props = {||};
 type State = {|
   progress: number,
