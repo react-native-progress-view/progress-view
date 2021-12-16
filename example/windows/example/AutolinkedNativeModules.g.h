@@ -2,7 +2,6 @@
 // clang-format off
 #pragma once
 
-
 namespace winrt::Microsoft::ReactNative
 {
 

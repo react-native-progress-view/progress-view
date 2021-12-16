@@ -1,15 +1,15 @@
 ﻿#include "pch.h"
 #include "MainPage.h"
-
 #if __has_include("MainPage.g.cpp")
 #include "MainPage.g.cpp"
 #endif
+
 #include "App.h"
 
 using namespace winrt;
 using namespace Windows::UI::Xaml;
 
-namespace winrt::ProgressViewExample::implementation
+namespace winrt::example::implementation
 {
     MainPage::MainPage()
     {

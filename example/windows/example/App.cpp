@@ -1,20 +1,16 @@
 #include "pch.h"
-
 #include "App.h"
 
 #include "AutolinkedNativeModules.g.h"
 #include "ReactPackageProvider.h"
-
-
-using namespace winrt::ProgressViewExample;
-using namespace winrt::ProgressViewExample::implementation;
 
 using namespace winrt;
 using namespace Windows::UI::Xaml;
 using namespace Windows::UI::Xaml::Controls;
 using namespace Windows::UI::Xaml::Navigation;
 using namespace Windows::ApplicationModel;
-
+namespace winrt::example::implementation
+{
 /// <summary>
 /// Initializes the singleton application object.  This is the first line of
 /// authored code executed, and as such is the logical equivalent of main() or
@@ -22,8 +18,6 @@ using namespace Windows::ApplicationModel;
 /// </summary>
 App::App() noexcept
 {
-    //MainComponentName(L"example");
-
 #if BUNDLE
     JavaScriptBundleFile(L"index.windows");
     InstanceSettings().UseWebDebugger(false);
@@ -40,13 +34,13 @@ App::App() noexcept
     InstanceSettings().UseDeveloperSupport(false);
 #endif
 
+    RegisterAutolinkedNativeModulePackages(PackageProviders()); // Includes any autolinked modules
 
     PackageProviders().Append(make<ReactPackageProvider>()); // Includes all modules in this project
     PackageProviders().Append(winrt::progress_view::ReactPackageProvider());
 
     InitializeComponent();
 }
-
 
 /// <summary>
 /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -56,9 +50,23 @@ App::App() noexcept
 void App::OnLaunched(activation::LaunchActivatedEventArgs const& e)
 {
     super::OnLaunched(e);
+
     Frame rootFrame = Window::Current().Content().as<Frame>();
-    rootFrame.Navigate(xaml_typename<ProgressViewExample::MainPage>(), box_value(e.Arguments()));
+    rootFrame.Navigate(xaml_typename<MainPage>(), box_value(e.Arguments()));
 }
+
+/// <summary>
+/// Invoked when the application is activated by some means other than normal launching.
+/// </summary>
+void App::OnActivated(Activation::IActivatedEventArgs const &e) {
+  auto preActivationContent = Window::Current().Content();
+  super::OnActivated(e);
+  if (!preActivationContent && Window::Current()) {
+    Frame rootFrame = Window::Current().Content().as<Frame>();
+    rootFrame.Navigate(xaml_typename<MainPage>(), nullptr);
+  }
+}
+
 /// <summary>
 /// Invoked when application execution is being suspended.  Application state is saved
 /// without knowing whether the application will be terminated or resumed with the contents
@@ -70,6 +78,7 @@ void App::OnSuspending([[maybe_unused]] IInspectable const& sender, [[maybe_unus
 {
     // Save application state and stop any background activity
 }
+
 /// <summary>
 /// Invoked when Navigation to a certain page fails
 /// </summary>
@@ -79,3 +88,5 @@ void App::OnNavigationFailed(IInspectable const&, NavigationFailedEventArgs cons
 {
     throw hresult_error(E_FAIL, hstring(L"Failed to load Page ") + e.SourcePageType().Name);
 }
+
+} // namespace winrt::example::implementation

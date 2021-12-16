@@ -2,7 +2,7 @@
 #include "MainPage.g.h"
 #include <winrt/Microsoft.ReactNative.h>
 
-namespace winrt::ProgressViewExample::implementation
+namespace winrt::example::implementation
 {
     struct MainPage : MainPageT<MainPage>
     {
@@ -10,7 +10,7 @@ namespace winrt::ProgressViewExample::implementation
     };
 }
 
-namespace winrt::ProgressViewExample::factory_implementation
+namespace winrt::example::factory_implementation
 {
     struct MainPage : MainPageT<MainPage, implementation::MainPage>
     {

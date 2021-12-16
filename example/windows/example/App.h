@@ -4,17 +4,16 @@
 
 namespace activation = winrt::Windows::ApplicationModel::Activation;
 
-namespace winrt::ProgressViewExample::implementation
+namespace winrt::example::implementation
 {
     struct App : AppT<App>
     {
         App() noexcept;
         void OnLaunched(activation::LaunchActivatedEventArgs const&);
+        void OnActivated(Windows::ApplicationModel::Activation::IActivatedEventArgs const &e);
         void OnSuspending(IInspectable const&, Windows::ApplicationModel::SuspendingEventArgs const&);
         void OnNavigationFailed(IInspectable const&, Windows::UI::Xaml::Navigation::NavigationFailedEventArgs const&);
-        private:
+      private:
         using super = AppT<App>;
     };
-} // namespace winrt::ProgressViewExample::implementation
-
-
+} // namespace winrt::example::implementation
