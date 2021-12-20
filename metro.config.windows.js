@@ -27,7 +27,7 @@ module.exports = {
     platforms: ['ios', 'android', 'windesktop', 'windows', 'web', 'macos'],
     // Since there are multiple copies of react-native, we need to ensure that metro only sees one of them
     // This should go in RN 0.62 when haste is removed
-    ockList: exclusionList([
+    blockList: exclusionList([
       new RegExp(
         `${path.join(path.resolve(rnPath), path.sep).replace(/[/\\]/g, '/')}.*`,
       ),
