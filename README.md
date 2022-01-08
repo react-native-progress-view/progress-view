@@ -100,10 +100,9 @@ Add ProgressView like this
 #### Windows
 1. Clone branch 
 2. cd into progress_view and run `yarn install`
-3. run `yarn add react-native@0.62 --dev` (React Native Windows relies on a version of react-native lower than iOS)
-4. Start metro server with `yarn start:windows`
-5. Open Visual Studios and open `example/windows/ProgressViewExample.sln`
-6. Set to Debug x64 and start solution
+3. Start metro server with `yarn start:windows`
+4. Open Visual Studios and open `example/windows/ProgressViewExample.sln`
+5. Set to Debug x64 and start solution
 
 #### IOS
 1. Clone branch

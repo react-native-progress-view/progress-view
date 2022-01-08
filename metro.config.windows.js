@@ -6,7 +6,8 @@
  */
 const fs = require('fs');
 const path = require('path');
-const blacklist = require('metro-config/src/defaults/blacklist');
+
+const exclusionList = require('metro-config/src/defaults/exclusionList');
 
 const rnPath = fs.realpathSync(
   path.resolve(require.resolve('react-native/package.json'), '..'),
@@ -26,22 +27,20 @@ module.exports = {
     platforms: ['ios', 'android', 'windesktop', 'windows', 'web', 'macos'],
     // Since there are multiple copies of react-native, we need to ensure that metro only sees one of them
     // This should go in RN 0.62 when haste is removed
-    blacklistRE: blacklist([
+    blockList: exclusionList([
       new RegExp(
         `${path.join(path.resolve(rnPath), path.sep).replace(/[/\\]/g, '/')}.*`,
       ),
 
       // This stops "react-native run-windows" from causing the metro server to crash if its already running
-      new RegExp(
-        `${path.resolve(__dirname, 'windows').replace(/[/\\]/g, '/')}.*`,
-      ),
+      /.*\.ProjectImports\.zip/,
     ]),
   },
   transformer: {
     getTransformOptions: async () => ({
       transform: {
         experimentalImportSupport: false,
-        inlineRequires: false,
+        inlineRequires: true,
       },
     }),
   },
