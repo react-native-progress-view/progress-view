@@ -36,7 +36,7 @@
     "start:macos": "react-native start --use-react-native-macos",
     "start:windows": "react-native start --use-react-native-windows",
     "test": "jest js/__tests__/*",
-    "test:windows": "yarn jest --setupFiles=./jest-setups/jest.setup.windows.js",
+    "test:windows": "jest --setupFiles=./jest-setups/jest.setup.windows.js",
     "type-check": "tsc --noEmit",
     "windows": "react-native run-windows"
   },
