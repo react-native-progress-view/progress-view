@@ -80,5 +80,14 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "codegenConfig": {
+    "libraries": [
+      {
+        "name": "progressview",
+        "type": "components",
+        "jsSrcsDir": "./js"
+      }
+    ]
   }
 }
