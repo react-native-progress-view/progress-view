@@ -21,13 +21,6 @@ Pod::Spec.new do |s|
   s.ios.exclude_files = "ios/Fabric"
   s.osx.source_files = "macos/**/*.{h,m}"
 
-  s.compiler_flags  = folly_compiler_flags
-
-  s.pod_target_xcconfig    = {
-    "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost\"",
-    "CLANG_CXX_LANGUAGE_STANDARD" => "c++17",
-  }
-
   s.dependency 'React-Core'
 
   if fabric_enabled
@@ -38,6 +31,13 @@ Pod::Spec.new do |s|
     end
 
     s.subspec "fabric" do |ss|
+      s.compiler_flags  = folly_compiler_flags
+
+      s.pod_target_xcconfig    = {
+        "HEADER_SEARCH_PATHS" => "\"$(PODS_ROOT)/boost\"",
+        "CLANG_CXX_LANGUAGE_STANDARD" => "c++17",
+      }
+
       s.dependency 'RCT-Folly'
       s.dependency 'RCTRequired'
       s.dependency 'RCTTypeSafety'
