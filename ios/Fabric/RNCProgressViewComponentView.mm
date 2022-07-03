@@ -65,9 +65,12 @@ static UIProgressViewStyle progressViewStyle(RNCProgressViewProgressViewStyle co
   self.trackImageCoordinator = nullptr;
 
   if (_progressImage) {
+    [_view setProgressImage:nil];
+  }
+  if (_trackImage) {
     [_view setTrackImage:nil];
   }
-
+  
   _progressImage = nil;
   _trackImage = nil;
 }
