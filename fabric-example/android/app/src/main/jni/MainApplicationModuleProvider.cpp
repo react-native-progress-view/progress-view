@@ -1,7 +1,7 @@
 #include "MainApplicationModuleProvider.h"
 
 #include <rncore.h>
-#include <safeareacontext.h>
+#include <progressview.h>
 
 namespace facebook {
 namespace react {
@@ -12,7 +12,7 @@ std::shared_ptr<TurboModule> MainApplicationModuleProvider(
   // Here you can provide your own module provider for TurboModules coming from
   // either your application or from external libraries. The approach to follow
   // is similar to the following (for a library called `samplelibrary`:
-  auto module = safeareacontext_ModuleProvider(moduleName, params);
+  auto module = progressview_ModuleProvider(moduleName, params);
   if (module != nullptr) {
     return module;
   }

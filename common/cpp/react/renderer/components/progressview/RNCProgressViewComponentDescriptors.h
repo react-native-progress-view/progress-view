@@ -1,8 +1,8 @@
 
 #pragma once
 
-#include <react/renderer/components/progressview/RNCProgressViewShadowNode.h>
 #include <react/renderer/core/ConcreteComponentDescriptor.h>
+#include "RNCProgressViewShadowNode.h"
 
 namespace facebook {
 namespace react {
