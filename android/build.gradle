@@ -1,35 +1,125 @@
+import java.nio.file.Paths
 
 buildscript {
+    ext.safeExtGet = {prop, fallback ->
+        rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+    }
+
     repositories {
+        google()
+	    gradlePluginPortal()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.3.1'
+        classpath("com.android.tools.build:gradle:7.0.4")
     }
+}
+
+def isNewArchitectureEnabled() {
+    // To opt-in for the New Architecture, you can either:
+    // - Set `newArchEnabled` to true inside the `gradle.properties` file
+    // - Invoke gradle with `-newArchEnabled=true`
+    // - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
+    return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
+}
+
+def findNodeModulePath(baseDir, packageName) {
+    def basePath = baseDir.toPath().normalize()
+    // Node's module resolution algorithm searches up to the root directory,
+    // after which the base path will be null
+    while (basePath) {
+        def candidatePath = Paths.get(basePath.toString(), "node_modules", packageName)
+        if (candidatePath.toFile().exists()) {
+            return candidatePath.toString()
+        }
+        basePath = basePath.getParent()
+    }
+    return null
 }
 
 apply plugin: 'com.android.library'
 
+if (isNewArchitectureEnabled()) {
+    apply plugin: "com.facebook.react"
+}
+
 android {
-    compileSdkVersion 30
-    buildToolsVersion "29.0.3"
+    compileSdkVersion safeExtGet('compileSdkVersion', 31)
+
+    // Used to override the NDK path/version on internal CI or by allowing
+    // users to customize the NDK path/version from their root project (e.g. for M1 support)
+    if (rootProject.hasProperty("ndkPath")) {
+        ndkPath rootProject.ext.ndkPath
+    }
+    if (rootProject.hasProperty("ndkVersion")) {
+        ndkVersion rootProject.ext.ndkVersion
+    }
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion safeExtGet('minSdkVersion', 21)
+        targetSdkVersion safeExtGet('targetSdkVersion', 31)
+        buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
+
+        // if (isNewArchitectureEnabled()) {
+        //     var appProject = rootProject.allprojects.find {it.plugins.hasPlugin('com.android.application')}
+        //     var reactAndroidProject = project(':ReactAndroid')
+        //     externalNativeBuild {
+        //         ndkBuild {
+        //             arguments "APP_PLATFORM=android-21",
+        //                     "APP_STL=c++_shared",
+        //                     "NDK_TOOLCHAIN_VERSION=clang",
+        //                     "GENERATED_SRC_DIR=${appProject.buildDir}/generated/source",
+        //                     "PROJECT_BUILD_DIR=${appProject.buildDir}",
+        //                     "REACT_ANDROID_DIR=${reactAndroidProject.projectDir}",
+        //                     "REACT_ANDROID_BUILD_DIR=${reactAndroidProject.buildDir}"
+        //             cFlags "-Wall", "-Werror", "-fexceptions", "-frtti", "-DWITH_INSPECTOR=1"
+        //             cppFlags "-std=c++17"
+        //             targets "progressview_modules"
+        //         }
+        //     }
+        // }
     }
+
     lintOptions {
         abortOnError false
+    }
+
+
+    sourceSets.main {
+        java {
+            if (isNewArchitectureEnabled()) {
+                srcDirs += [
+                    "src/fabric/java",
+                ]
+            } else {
+                srcDirs += [
+                    "src/paper/java",
+                ]
+            }
+        }
     }
 }
 
 repositories {
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        url "$rootDir/../node_modules/react-native/android"
+    }
     mavenCentral()
+    google()
 }
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
+}
+
+if (isNewArchitectureEnabled()) {
+    react {
+        reactNativeDir = rootProject.file(findNodeModulePath(rootProject.rootDir, "react-native") ?: "../node_modules/react-native/")
+        jsRootDir = file("../js/")
+        codegenDir = rootProject.file(findNodeModulePath(rootProject.rootDir, "react-native-codegen") ?: "../node_modules/react-native-codegen/")
+        libraryName = "progressview"
+        codegenJavaPackageName = "com.reactnativecommunity.progressview"
+    }
 }
