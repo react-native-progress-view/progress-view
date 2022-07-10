@@ -68,7 +68,7 @@ public class RNCProgressViewManager extends SimpleViewManager<ProgressBar>
         RNCProgressViewManagerImpl.setTrackTintColor(bar, color);
     }
 
-    // @Override
+    @Override
     @ReactProp(name = "isIndeterminate")
     public void setIsIndeterminate(ProgressBar bar, boolean isIndeterminate) {
         RNCProgressViewManagerImpl.setIsIndeterminate(bar, isIndeterminate);
