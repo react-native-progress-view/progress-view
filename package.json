@@ -27,10 +27,10 @@
     "windows"
   ],
   "scripts": {
-    "android": "react-native run-android --root example",
+    "android": "react-native run-android",
     "appium": "appium",
     "flow": "flow",
-    "ios": "react-native run-ios --project-path \"./example/ios\"",
+    "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
     "start:macos": "react-native start --use-react-native-macos",
@@ -44,7 +44,6 @@
     "preset": "react-native"
   },
   "resolutions": {
-    "metro": "0.64.0",
     "jimp": "^0.10.0"
   },
   "devDependencies": {
@@ -58,15 +57,15 @@
     "appium": "1.17.0",
     "babel-jest": "^26.6.3",
     "babel-plugin-module-resolver": "^3.2.0",
-    "eslint": "^7.14.0",
-    "flow-bin": "0.137.0",
+    "eslint": "^7.32.0",
+    "flow-bin": "0.176.0",
     "jest": "^26.6.3",
-    "metro-react-native-babel-preset": "^0.64.0",
-    "react": "17.0.1",
-    "react-native": "0.64.0",
+    "metro-react-native-babel-preset": "^0.70.3",
+    "react": "18.0.0",
+    "react-native": "0.69.1",
     "react-native-macos": "^0.62.0-0",
     "react-native-windows": "^0.64.0-0",
-    "react-test-renderer": "17.0.1",
+    "react-test-renderer": "18.0.0",
     "selenium-appium": "0.0.15",
     "selenium-webdriver": "4.0.0-alpha.7",
     "typescript": "^3.8.3"

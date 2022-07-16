@@ -34,7 +34,7 @@ if (process.argv.includes(macSwitch)) {
   module.exports = {
     project: {
       ios: {
-        project: './example/ios/ProgressViewExample.xcodeproj',
+        sourceDir: './example/ios/example.xcodeproj',
       },
       android: {
         sourceDir: './example/android',
