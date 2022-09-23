@@ -8,11 +8,10 @@ buildscript {
     repositories {
         google()
 	    gradlePluginPortal()
-        mavenCentral()
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:7.0.4")
+        classpath("com.android.tools.build:gradle:7.2.1")
     }
 }
 
@@ -112,14 +111,4 @@ repositories {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-}
-
-if (isNewArchitectureEnabled()) {
-    react {
-        reactNativeDir = rootProject.file(findNodeModulePath(rootProject.rootDir, "react-native") ?: "../node_modules/react-native/")
-        jsRootDir = file("../js/")
-        codegenDir = rootProject.file(findNodeModulePath(rootProject.rootDir, "react-native-codegen") ?: "../node_modules/react-native-codegen/")
-        libraryName = "progressview"
-        codegenJavaPackageName = "com.reactnativecommunity.progressview"
-    }
 }

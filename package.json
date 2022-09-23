@@ -82,12 +82,11 @@
     "access": "public"
   },
   "codegenConfig": {
-    "libraries": [
-      {
-        "name": "progressview",
-        "type": "components",
-        "jsSrcsDir": "./js"
-      }
-    ]
+    "name": "progressview",
+    "type": "components",
+    "jsSrcsDir": "./js",
+    "android": {
+      "javaPackageName": "com.reactnativecommunity.progressview"
+    }
   }
 }
