@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {StyleSheet, Text, SafeAreaView, Platform} from 'react-native';
-import {ProgressView} from '../js';
+import {ProgressView} from '@react-native-community/progress-view';
 
 type Props = {||};
 type State = {|
   progress: number,
 |};
 
-export class App extends React.Component<Props, State> {
+class App extends React.Component<Props, State> {
   _rafId: ?AnimationFrameID = null;
 
   state = {
@@ -117,6 +117,8 @@ export class App extends React.Component<Props, State> {
     );
   }
 }
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
