@@ -106,6 +106,6 @@ jobs:
       - name: Install Dependencies
         run: yarn
       - name: Install Podfiles
-        run: cd example/ios && pod install --project-directory=ios
+        run: cd example && pod install --project-directory=ios
       - name: Build example app
         run: yarn ios
