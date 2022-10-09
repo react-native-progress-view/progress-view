@@ -86,6 +86,8 @@ jobs:
         run: yarn
       - name: Install Example Dependencies
         run: cd example && yarn
+      - name: Build android
+        run: cd example && yarn build:android
       - name: Build Android Example App and Library
         run: cd example/android && ./gradlew clean assembleDebug
   ios:
@@ -107,6 +109,10 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies
         run: yarn
+      - name: Install Example Dependencies
+        run: cd example && yarn
+      - name: Build ios
+        run: cd example && yarn build:ios
       - name: Install Podfiles
         run: cd example && pod install --project-directory=ios
       - name: Build example app
