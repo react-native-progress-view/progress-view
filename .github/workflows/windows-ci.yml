@@ -47,10 +47,7 @@ jobs:
 
     - name: Generate Windows App
       run: cd example && npx install-windows-test-app --use-nuget
-    
-    - name: Build x64 release
-      run: cd example && yarn windows --root example --arch x64 --release --no-packager --no-deploy --logging
- 
+     
     - name: Start Appium server
       shell: powershell
       run: Start-Process PowerShell -ArgumentList "yarn appium"
