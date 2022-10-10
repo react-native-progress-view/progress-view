@@ -5,6 +5,9 @@ jobs:
   run-windows-tests:
     name: Build & run tests
     runs-on: windows-2019
+    strategy:
+      matrix:
+        node-version: [16]
 
     steps:
     - uses: actions/checkout@v2
@@ -13,7 +16,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: '12.9.1'
+        node-version: ${{ matrix.node-version }}
         
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.0.2
@@ -33,9 +36,14 @@ jobs:
           ${{ runner.os }}-yarn-
     - name: Install node modules
       if: steps.yarn-cache.outputs.cache-hit != 'true'
-      run: 
-        yarn add react-native@0.62 --dev
-        yarn --pure-lockfile
+      run: yarn --pure-lockfile
+
+    - name: Install example node modules
+      if: steps.yarn-cache.outputs.cache-hit != 'true'
+      run: cd example && yarn
+
+    - name: Build Windows
+      run: cd example && yarn build:windows
     
     - name: yarn build
       if: steps.yarn-cache.outputs.cache-hit == 'true'
