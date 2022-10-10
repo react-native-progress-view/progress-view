@@ -45,26 +45,13 @@ jobs:
     - name: Build Windows
       run: cd example && yarn build:windows
     
-    - name: yarn build
-      if: steps.yarn-cache.outputs.cache-hit == 'true'
+    - name: Run Windows
       run: |
-        yarn build
-        yarn tsc
+        cd example && yarn windows
         
-    - name: NuGet restore
-      run: nuget restore example\windows\ProgressViewExample.sln
-
     - name: Build x64 release
-      run: npx react-native run-windows --root example --arch x64 --release --no-packager --no-deploy --logging
+      run: cd example && yarn windows --root example --arch x64 --release --no-packager --no-deploy --logging
  
-    - name: Deploy
-      shell: powershell
-      run: |
-        cd example
-        Copy-Item -Path windows\x64\Release -Recurse -Destination windows\
-        npx react-native run-windows --arch x64 --release --no-build --no-packager
-
-      
     - name: Start Appium server
       shell: powershell
       run: Start-Process PowerShell -ArgumentList "yarn appium"
