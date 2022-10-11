@@ -5,6 +5,9 @@ jobs:
   run-windows-tests:
     name: Build & run tests
     runs-on: windows-2019
+    strategy:
+      matrix:
+        node-version: [16]
 
     steps:
     - uses: actions/checkout@v2
@@ -13,7 +16,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v1
       with:
-        node-version: '12.9.1'
+        node-version: ${{ matrix.node-version }}
         
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.0.2
@@ -33,33 +36,21 @@ jobs:
           ${{ runner.os }}-yarn-
     - name: Install node modules
       if: steps.yarn-cache.outputs.cache-hit != 'true'
-      run: 
-        yarn add react-native@0.62 --dev
-        yarn --pure-lockfile
-    
-    - name: yarn build
-      if: steps.yarn-cache.outputs.cache-hit == 'true'
-      run: |
-        yarn build
-        yarn tsc
-        
-    - name: NuGet restore
-      run: nuget restore example\windows\ProgressViewExample.sln
+      run: yarn --pure-lockfile
 
-    - name: Build x64 release
-      run: npx react-native run-windows --root example --arch x64 --release --no-packager --no-deploy --logging
- 
-    - name: Deploy
-      shell: powershell
-      run: |
-        cd example
-        Copy-Item -Path windows\x64\Release -Recurse -Destination windows\
-        npx react-native run-windows --arch x64 --release --no-build --no-packager
+    - name: Install example node modules
+      if: steps.yarn-cache.outputs.cache-hit != 'true'
+      run: cd example && yarn
 
+    - name: Build Windows
+      run: cd example && yarn build:windows
+
+    - name: Generate Windows App
+      run: cd example && npx install-windows-test-app --use-nuget
+     
+    # - name: Start Appium server
+    #   shell: powershell
+    #   run: Start-Process PowerShell -ArgumentList "yarn appium"
       
-    - name: Start Appium server
-      shell: powershell
-      run: Start-Process PowerShell -ArgumentList "yarn appium"
-      
-    - name: Run tests
-      run: yarn test:windows
+    # - name: Run tests
+    #   run: yarn test:windows

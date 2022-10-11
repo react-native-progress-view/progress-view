@@ -1,38 +1,30 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
-    ext {
-        buildToolsVersion = "29.0.3"
-        minSdkVersion = 21
-        compileSdkVersion = 29
-        targetSdkVersion = 29
-        ndkVersion = "20.1.5948944"
-    }
+    def androidTestAppDir = "../node_modules/react-native-test-app/android"
+    apply(from: "${androidTestAppDir}/dependencies.gradle")
+    apply(from: "${androidTestAppDir}/test-app-util.gradle")
+
     repositories {
-        google()
         mavenCentral()
+        google()
     }
+
     dependencies {
-        classpath("com.android.tools.build:gradle:4.1.0")
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath("com.android.tools.build:gradle:${androidPluginVersion}")
+
+        if (isNewArchitectureEnabled(project)) {
+            classpath("com.facebook.react:react-native-gradle-plugin")
+            classpath("de.undercouch:gradle-download-task:5.1.2")
+        }
     }
 }
 
 allprojects {
     repositories {
-        mavenLocal()
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-            url("$rootDir/../../node_modules/react-native/android")
+            url("${rootDir}/../node_modules/react-native/android")
         }
-        maven {
-            // Android JSC is installed from npm
-            url("$rootDir/../../node_modules/jsc-android/dist")
-        }
-
-        google()
         mavenCentral()
-        maven { url 'https://www.jitpack.io' }
+        google()
     }
 }
