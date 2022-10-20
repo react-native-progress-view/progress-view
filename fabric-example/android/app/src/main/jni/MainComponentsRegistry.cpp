@@ -4,7 +4,7 @@
 #include <fbjni/fbjni.h>
 #include <react/renderer/componentregistry/ComponentDescriptorProviderRegistry.h>
 #include <react/renderer/components/rncore/ComponentDescriptors.h>
-#include "RNCProgressViewComponentDescriptors.h"
+#include <rncli.h>
 
 namespace facebook {
 namespace react {
@@ -15,8 +15,14 @@ std::shared_ptr<ComponentDescriptorProviderRegistry const>
 MainComponentsRegistry::sharedProviderRegistry() {
   auto providerRegistry = CoreComponentsRegistry::sharedProviderRegistry();
 
-  providerRegistry->add(concreteComponentDescriptorProvider<
-                        RNCProgressViewComponentDescriptor>());
+  // Autolinked providers registered by RN CLI
+  rncli_registerProviders(providerRegistry);
+
+  // Custom Fabric Components go here. You can register custom
+  // components coming from your App or from 3rd party libraries here.
+  //
+  // providerRegistry->add(concreteComponentDescriptorProvider<
+  //        AocViewerComponentDescriptor>());
   return providerRegistry;
 }
 

@@ -1,14 +1,9 @@
 import java.nio.file.Paths
 
 buildscript {
-    ext.safeExtGet = {prop, fallback ->
-        rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
-    }
-
     repositories {
         google()
         mavenCentral()
-        gradlePluginPortal()
     }
 
     dependencies {
@@ -30,22 +25,19 @@ if (isNewArchitectureEnabled()) {
     apply plugin: "com.facebook.react"
 }
 
-android {
-    compileSdkVersion safeExtGet('compileSdkVersion', 30)
-    buildToolsVersion safeExtGet('buildToolsVersion', '29.0.3')
+def getExtOrDefault(name, defaultValue) {
+    return rootProject.ext.has(name) ? rootProject.ext.get(name) : defaultValue
+}
 
-    // Used to override the NDK path/version on internal CI or by allowing
-    // users to customize the NDK path/version from their root project (e.g. for M1 support)
-    if (rootProject.hasProperty("ndkPath")) {
-        ndkPath rootProject.ext.ndkPath
-    }
-    if (rootProject.hasProperty("ndkVersion")) {
-        ndkVersion rootProject.ext.ndkVersion
-    }
+android {
+    compileSdkVersion getExtOrDefault('compileSdkVersion', 30)
+    buildToolsVersion getExtOrDefault('buildToolsVersion', '29.0.3')
 
     defaultConfig {
-        minSdkVersion safeExtGet('minSdkVersion', 21)
-        targetSdkVersion safeExtGet('targetSdkVersion', 31)
+        minSdkVersion getExtOrDefault('minSdkVersion', 21)
+        targetSdkVersion getExtOrDefault('targetSdkVersion', 31)
+        versionCode 1
+        versionName "1.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
     }
 
@@ -53,12 +45,12 @@ android {
         abortOnError false
     }
 
-
     sourceSets.main {
         java {
             if (isNewArchitectureEnabled()) {
                 srcDirs += [
                     "src/fabric/java",
+                    "${project.buildDir}/generated/source/codegen/java"
                 ]
             } else {
                 srcDirs += [
@@ -70,6 +62,7 @@ android {
 }
 
 repositories {
+    google()
     mavenCentral()
 }
 

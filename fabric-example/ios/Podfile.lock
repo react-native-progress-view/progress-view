@@ -629,7 +629,6 @@ PODS:
     - RCT-Folly
     - RCTRequired
     - RCTTypeSafety
-    - React-Core
     - react-native-progress-view/common (= 1.3.1)
     - react-native-progress-view/fabric (= 1.3.1)
     - ReactCommon/turbomodule/core
@@ -637,14 +636,12 @@ PODS:
     - RCT-Folly
     - RCTRequired
     - RCTTypeSafety
-    - React-Core
     - ReactCommon/turbomodule/core
   - react-native-progress-view/fabric (1.3.1):
     - RCT-Folly
     - RCTRequired
     - RCTTypeSafety
     - React-Codegen
-    - React-Core
     - react-native-progress-view/common
     - React-RCTFabric
     - ReactCommon/turbomodule/core
@@ -928,7 +925,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 47201924064085223b63ec7e3ee9fd40ad8508e8
   React-jsinspector: 1363be638eccfe1aea1b10dd42e632b0397e5ec8
   React-logger: 7bd569e3857d74ed412ce0a5c51f421ff7d4ca7f
-  react-native-progress-view: 26bb9c84867815f3ed0601ee16a3a08ca5eed131
+  react-native-progress-view: 9eedf258a17fcb6056597b111f4a5e5bbccdf61a
   React-perflogger: 48c6b363e867d64b682e84f80ca45636bd65e19c
   React-RCTActionSheet: 33c74fe5c754835e3715c300618da9aa2f7203fa
   React-RCTAnimation: 2dbf0120d4d1ab7716079b4180f2ca89c465e46b
@@ -947,6 +944,6 @@ SPEC CHECKSUMS:
   Yoga: 6c8252e38d65aa387daee699eacf027e055e0b31
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: f5493d14157519615437c9ecd8cbf762e4f8568e
+PODFILE CHECKSUM: 924bd4374268176363af7b1f78227055fca8e15a
 
 COCOAPODS: 1.11.2

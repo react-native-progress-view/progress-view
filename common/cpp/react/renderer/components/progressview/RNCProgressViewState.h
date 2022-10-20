@@ -15,7 +15,7 @@ namespace react {
 /*
  * State for <RNCProgressView> component.
  */
-class RNCProgressViewState final {
+class JSI_EXPORT RNCProgressViewState final {
  public:
   RNCProgressViewState(
       ImageSource const &progressImageSource,

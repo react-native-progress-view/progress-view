@@ -1,5 +1,6 @@
 #pragma once
 
+#include <jsi/jsi.h>
 #include <react/renderer/components/progressview/Props.h>
 #include <react/renderer/components/view/ConcreteViewShadowNode.h>
 #include <react/renderer/components/view/ViewEventEmitter.h>
@@ -12,12 +13,12 @@
 namespace facebook {
 namespace react {
 
-extern const char RNCProgressViewComponentName[];
+JSI_EXPORT extern const char RNCProgressViewComponentName[];
 
 /*
  * `ShadowNode` for <RNCProgressView> component.
  */
-class RNCProgressViewShadowNode final : public ConcreteViewShadowNode<
+JSI_EXPORT class RNCProgressViewShadowNode final : public ConcreteViewShadowNode<
                                             RNCProgressViewComponentName,
                                             RNCProgressViewProps,
                                             ViewEventEmitter,
