@@ -10,7 +10,7 @@
 
 import * as React from 'react';
 
-import RNCProgressViewNativeComponent from './RNCProgressViewNativeComponentWindows';
+import RNCProgressViewNativeComponent from './RNCProgressViewNativeComponentAndroid';
 
 export default function ProgressView(props) {
   const nativeProps = {
