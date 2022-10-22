@@ -18,12 +18,11 @@ JSI_EXPORT extern const char RNCProgressViewComponentName[];
 /*
  * `ShadowNode` for <RNCProgressView> component.
  */
-JSI_EXPORT class RNCProgressViewShadowNode final : public ConcreteViewShadowNode<
-                                            RNCProgressViewComponentName,
-                                            RNCProgressViewProps,
-                                            ViewEventEmitter,
-                                            RNCProgressViewState> {
- public:
+class JSI_EXPORT RNCProgressViewShadowNode final
+    : public ConcreteViewShadowNode<RNCProgressViewComponentName,
+                                    RNCProgressViewProps, ViewEventEmitter,
+                                    RNCProgressViewState> {
+public:
   using ConcreteViewShadowNode::ConcreteViewShadowNode;
 
   // Associates a shared `ImageManager` with the node.
@@ -46,7 +45,7 @@ JSI_EXPORT class RNCProgressViewShadowNode final : public ConcreteViewShadowNode
 
   void layout(LayoutContext layoutContext) override;
 
- private:
+private:
   void updateStateIfNeeded();
 
   ImageSource getProgressImageSource() const;

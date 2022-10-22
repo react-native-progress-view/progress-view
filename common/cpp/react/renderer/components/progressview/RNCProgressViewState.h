@@ -1,5 +1,6 @@
 #pragma once
 
+#include <react/renderer/components/progressview/Props.h>
 #include <react/renderer/imagemanager/ImageRequest.h>
 #include <react/renderer/imagemanager/primitives.h>
 
