@@ -41,7 +41,10 @@ class App extends React.Component<Props, State> {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={styles.header}>ProgressView Example</Text>
+        <Text style={styles.header}>
+          ProgressView Example (
+          {global?.nativeFabricUIManager ? 'Fabric' : 'Paper'})
+        </Text>
         <ProgressView
           style={styles.progressView}
           progress={this.getProgress(0)}
