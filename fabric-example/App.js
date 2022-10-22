@@ -7,7 +7,7 @@ type State = {|
   progress: number,
 |};
 
-export class App extends React.Component<Props, State> {
+class App extends React.Component<Props, State> {
   _rafId: ?AnimationFrameID = null;
 
   state = {
@@ -41,7 +41,10 @@ export class App extends React.Component<Props, State> {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={styles.header}>ProgressView Example</Text>
+        <Text style={styles.header}>
+          ProgressView Example (
+          {global?.nativeFabricUIManager ? 'Fabric' : 'Paper'})
+        </Text>
         <ProgressView
           style={styles.progressView}
           progress={this.getProgress(0)}
@@ -117,6 +120,8 @@ export class App extends React.Component<Props, State> {
     );
   }
 }
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {

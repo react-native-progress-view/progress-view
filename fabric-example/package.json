@@ -4,15 +4,21 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "build:android": "mkdirp dist/res && react-native bundle --entry-file index.js --platform android --dev true --bundle-output dist/main.android.jsbundle --assets-dest dist/res",
+    "build:ios": "mkdirp dist && react-native bundle --entry-file index.js --platform ios --dev true --bundle-output dist/main.ios.jsbundle --assets-dest dist",
+    "build:macos": "mkdirp dist && react-native bundle --entry-file index.js --platform macos --dev true --bundle-output dist/main.macos.jsbundle --assets-dest dist",
+    "build:windows": "mkdirp dist && react-native bundle --entry-file index.js --platform windows --dev true --bundle-output dist/main.windows.bundle --assets-dest dist",
     "ios": "react-native run-ios",
+    "lint": "eslint .",
+    "macos": "react-native run-macos --scheme example",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "windows": "react-native run-windows --sln windows/example.sln"
   },
   "dependencies": {
-    "@react-native-community/progress-view": "link:../",
+    "react": "18.1.0",
     "react-native": "0.70.1",
-    "react": "18.1.0"
+    "@react-native-community/progress-view": "link:../"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -22,6 +28,8 @@
     "eslint": "^7.32.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.72.1",
+    "mkdirp": "^1.0.0",
+    "react-native-test-app": "^2.0.0",
     "react-test-renderer": "18.1.0"
   },
   "jest": {
