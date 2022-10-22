@@ -28,5 +28,6 @@ type NativeProps = $ReadOnly<{|
 |}>;
 
 export default (codegenNativeComponent<NativeProps>('RNCProgressView', {
-  interfaceOnly: true,
+  interfaceOnly: false,
+  excludedPlatforms: ['iOS'],
 }): HostComponent<NativeProps>);

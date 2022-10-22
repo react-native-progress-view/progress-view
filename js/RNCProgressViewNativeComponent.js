@@ -34,4 +34,5 @@ type NativeProgressViewIOS = HostComponent<NativeProps>;
 
 export default (codegenNativeComponent<NativeProps>('RNCProgressView', {
   interfaceOnly: true,
+  excludedPlatforms: ['android'],
 }): NativeProgressViewIOS);

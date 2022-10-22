@@ -31,6 +31,6 @@ type NativeProps = $ReadOnly<{|
   isIndeterminate?: ?boolean,
 |}>;
 
-export default (codegenNativeComponent<NativeProps>('RNCProgressView', {
-  interfaceOnly: true,
-}): HostComponent<NativeProps>);
+export default (codegenNativeComponent<NativeProps>(
+  'RNCProgressView',
+): HostComponent<NativeProps>);
