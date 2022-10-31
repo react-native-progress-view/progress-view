@@ -9,9 +9,8 @@
 'use strict';
 
 import * as React from 'react';
-import {requireNativeComponent} from 'react-native';
 
-const RNCProgressView = requireNativeComponent('RNCProgressView');
+import RNCProgressViewNativeComponent from './RNCProgressViewNativeComponentAndroid';
 
 export default function ProgressView(props) {
   const nativeProps = {
@@ -23,5 +22,5 @@ export default function ProgressView(props) {
     style: [{height: 20}, props.style],
   };
 
-  return <RNCProgressView {...nativeProps} />;
+  return <RNCProgressViewNativeComponent {...nativeProps} />;
 }

@@ -12,7 +12,6 @@
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 
 import type {HostComponent} from 'react-native';
-import type {ImageSource} from 'react-native/Libraries/Image/ImageSource';
 import type {ColorValue} from 'react-native/Libraries/StyleSheet/StyleSheet';
 import type {
   Float,
@@ -22,17 +21,13 @@ import type {ViewProps} from 'react-native/Libraries/Components/View/ViewPropTyp
 
 type NativeProps = $ReadOnly<{|
   ...ViewProps,
-  progressViewStyle?: WithDefault<'default' | 'bar', 'default'>,
   progress?: WithDefault<Float, 0>,
   progressTintColor?: ?ColorValue,
   trackTintColor?: ?ColorValue,
-  progressImage?: ?ImageSource,
-  trackImage?: ?ImageSource,
+  isIndeterminate?: ?boolean,
 |}>;
 
-type NativeProgressViewIOS = HostComponent<NativeProps>;
-
 export default (codegenNativeComponent<NativeProps>('RNCProgressView', {
-  interfaceOnly: true,
-  excludedPlatforms: ['android'],
-}): NativeProgressViewIOS);
+  interfaceOnly: false,
+  excludedPlatforms: ['iOS'],
+}): HostComponent<NativeProps>);

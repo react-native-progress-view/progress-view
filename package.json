@@ -80,5 +80,13 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "codegenConfig": {
+    "name": "progressview",
+    "type": "components",
+    "jsSrcsDir": "./js",
+    "android": {
+      "javaPackageName": "com.reactnativecommunity.progressview"
+    }
   }
 }

@@ -28,11 +28,9 @@ type NativeProps = $ReadOnly<{|
   trackTintColor?: ?ColorValue,
   progressImage?: ?ImageSource,
   trackImage?: ?ImageSource,
+  isIndeterminate?: ?boolean,
 |}>;
 
-type NativeProgressViewIOS = HostComponent<NativeProps>;
-
-export default (codegenNativeComponent<NativeProps>('RNCProgressView', {
-  interfaceOnly: true,
-  excludedPlatforms: ['android'],
-}): NativeProgressViewIOS);
+export default (codegenNativeComponent<NativeProps>(
+  'RNCProgressView',
+): HostComponent<NativeProps>);
