@@ -22,7 +22,7 @@ RCT_ENUM_CONVERTER(UIProgressViewStyle, (@{
 
 @implementation RNCProgressViewManager
 
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE(RNCProgressView)
 
 - (UIView *)view
 {
