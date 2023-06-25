@@ -43,7 +43,7 @@ jobs:
           ${{ runner.os }}-pnpm-store-      
     - name: Install Dependencies
       if: steps.pnpm-cache.outputs.cache-hit != 'true'
-      run: pnpm install --pure-lockfile
+      run: pnpm install --frozen-lockfile
 
     - name: Install example node modules
       if: steps.pnpm-cache.outputs.cache-hit != 'true'
