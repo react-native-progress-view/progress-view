@@ -26,31 +26,38 @@ jobs:
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.5
 
-    - name: Check node modules cache
-      uses: actions/cache@v1
-      id: yarn-cache
-      with:
-        path: ./node_modules
-        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-
-    - name: Install node modules
-      if: steps.yarn-cache.outputs.cache-hit != 'true'
-      run: yarn --pure-lockfile
+    - uses: pnpm/action-setup@v2
+        with:
+          version: 6.0.2
+    - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "::set-output name=dir::$(pnpm store path)"
+    - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-      
+    - name: Install Dependencies
+      if: steps.pnpm-cache.outputs.cache-hit != 'true'
+      run: pnpm install --pure-lockfile
 
     - name: Install example node modules
-      if: steps.yarn-cache.outputs.cache-hit != 'true'
-      run: cd example && yarn
+      if: steps.pnpm-cache.outputs.cache-hit != 'true'
+      run: cd example && pnpm
 
     - name: Build Windows
-      run: cd example && yarn build:windows
+      run: cd example && pnpm build:windows
 
     - name: Generate Windows App
       run: cd example && npx install-windows-test-app --use-nuget
      
     # - name: Start Appium server
     #   shell: powershell
-    #   run: Start-Process PowerShell -ArgumentList "yarn appium"
+    #   run: Start-Process PowerShell -ArgumentList "pnpm appium"
       
     # - name: Run tests
-    #   run: yarn test:windows
+    #   run: pnpm test:windows

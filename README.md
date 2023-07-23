@@ -15,15 +15,24 @@ ProgressBar Component for macOS, iOS (based on UIProgressView), Android, and Win
 
 ## Getting started
 
+Using NPM:
+
 ```sh
 npm install @react-native-community/progress-view --save
 ```
 
-or
+Using Yarn:
 
 ```sh
 yarn add @react-native-community/progress-view
 ```
+
+Using PNPM:
+
+```sh
+pnpm add @react-native-community/progress-view
+```
+
 
 ### Linking
 
@@ -99,20 +108,20 @@ Add ProgressView like this
 
 #### Windows
 1. Clone branch 
-2. cd into progress_view and run `yarn install`
-3. Start metro server with `yarn start:windows`
+2. cd into progress_view and run `pnpm install`
+3. Start metro server with `pnpm start:windows`
 4. Open Visual Studios and open `example/windows/ProgressViewExample.sln`
 5. Set to Debug x64 and start solution
 
 #### IOS
 1. Clone branch
-2. cd into progress-view and run `yarn install`
+2. cd into progress-view and run `pnpm install`
 2. cd into example/ios and run `pod install`
-4. cd back into progress-view and run `yarn ios`
+4. cd back into progress-view and run `pnpm ios`
 
 #### macOS
 1. Clone branch
-2. cd into progress-view and run `yarn install`
+2. cd into progress-view and run `pnpm install`
 2. cd into example/macos/example/macos and run `pod install`
 4. Open the newly created example.xcworkspace in Xcode, build, and run
 
