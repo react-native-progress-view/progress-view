@@ -19,6 +19,7 @@
   "main": "js/index.js",
   "types": "js/index.d.ts",
   "files": [
+    "common",
     "android",
     "ios",
     "js",
