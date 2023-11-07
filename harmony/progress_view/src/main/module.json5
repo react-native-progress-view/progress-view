@@ -1,0 +1,7 @@
+{
+  "module": {
+    "name": "progress_view",
+    "type": "har",
+    "deviceTypes": ['default'],
+  }
+}

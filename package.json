@@ -1,7 +1,10 @@
 {
-  "name": "@react-native-community/progress-view",
-  "version": "1.4.2",
+  "name": "@react-native-oh-library/progress-view",
+  "version": "1.4.2-0.0.2",
   "description": "React Native Progress View iOS Library",
+  "harmony": {
+    "alias": "@react-native-community/progress-view"
+  },
   "keywords": [
     "ProgressViewIOS",
     "progress",
@@ -12,7 +15,7 @@
   "homepage": "https://github.com/react-native-community/react-native-progress-view#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/react-native-community/react-native-progress-view.git"
+    "url": "https://github.com/react-native-oh-library/progress-view.git"
   },
   "license": "MIT",
   "author": "Kaiden Sin <ksnz93@gmail.com>",
@@ -22,6 +25,7 @@
     "common",
     "android",
     "ios",
+    "harmony",
     "js",
     "macos",
     "react-native-progress-view.podspec",
@@ -80,7 +84,7 @@
     "react-native": ">=0.59.5"
   },
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   },
   "codegenConfig": {
     "name": "progressview",
