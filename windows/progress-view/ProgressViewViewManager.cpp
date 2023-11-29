@@ -37,6 +37,7 @@ namespace winrt::progress_view::implementation {
     // IViewManagerWithNativeProperties
     IMapView<hstring, ViewManagerPropertyType> ProgressViewViewManager::NativeProps() noexcept {
         auto nativeProps = winrt::single_threaded_map<hstring, ViewManagerPropertyType>();
+        nativeProps.Insert(L"accessibilityLabel", ViewManagerPropertyType::String);
         nativeProps.Insert(L"progress", ViewManagerPropertyType::Number);
         nativeProps.Insert(L"progressTintColor", ViewManagerPropertyType::Color);
         nativeProps.Insert(L"trackTintColor", ViewManagerPropertyType::Color);

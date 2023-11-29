@@ -31,5 +31,7 @@ export type ProgressViewProps = ViewProps & {
    * A stretchable image to display behind the progress bar.
    */
   trackImage?: ImageSourcePropType,
+
+  accessibilityLabel?: String,
 };
 export class ProgressView extends React.Component<ProgressViewProps> {}

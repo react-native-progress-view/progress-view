@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
 
 export default function ProgressViewWindows(props: WindowsNativeProps) {
   const nativeProps = {
+    accessibilityLabel: props.accessibilityLabel,
     testID: props.testID,
     progressViewStyle: props.progressViewStyle,
     progress: props.progress,
