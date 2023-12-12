@@ -51,6 +51,11 @@ namespace winrt::progress_view::implementation {
             else if (propertyName == "isIndeterminate") {
                 this->IsIndeterminate(propertyValue.AsBoolean());
             }
+            else if (propertyName == "accessibilityLabel") {
+                if (!propertyValue.IsNull()) {
+                    this->Name(to_hstring(propertyValue.AsString()));
+                }
+            }
             else if (propertyName == "progressImage") {
                 if (!propertyValue.IsNull()) {
                     auto imgUriString = propertyValue.AsObject()["uri"].AsString();
