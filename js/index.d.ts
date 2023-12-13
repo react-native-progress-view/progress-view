@@ -36,5 +36,6 @@ export type ProgressViewProps = ViewProps & {
    * Turns the progress bar into an indeterminate progress bar
    */
   isIndeterminate?: boolean,
+  accessibilityLabel?: String,
 };
 export class ProgressView extends React.Component<ProgressViewProps> {}
