@@ -7,7 +7,7 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        node-version: [16]
+        node-version: [18]
 
     steps:
     - uses: actions/checkout@v2

@@ -51,3 +51,6 @@ buck-out/
 
 #VS code
 .vscode/**
+
+# yarn
+.yarn
