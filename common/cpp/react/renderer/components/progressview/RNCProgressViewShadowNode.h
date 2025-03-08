@@ -7,6 +7,7 @@
 #include <react/renderer/core/LayoutContext.h>
 #include <react/renderer/imagemanager/ImageManager.h>
 #include <react/renderer/imagemanager/primitives.h>
+#include <react/renderer/core/ShadowNodeFamily.h> 
 
 #include "RNCProgressViewState.h"
 
@@ -29,9 +30,9 @@ public:
   void setImageManager(const SharedImageManager &imageManager);
 
   static RNCProgressViewState initialStateData(
-      ShadowNodeFragment const &fragment,
-      ShadowNodeFamilyFragment const &familyFragment,
-      ComponentDescriptor const &componentDescriptor) {
+      const Props::Shared& props,
+      const ShadowNodeFamily::Shared& family,
+      const ComponentDescriptor& componentDescriptor) {
     auto imageSource = ImageSource{ImageSource::Type::Invalid};
     return {
         imageSource,
