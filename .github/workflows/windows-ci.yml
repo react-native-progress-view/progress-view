@@ -7,14 +7,14 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        node-version: [18]
+        node-version: [22]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       name: Checkout Code
 
     - name: Setup Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         
@@ -27,7 +27,7 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.5
 
     - name: Check node modules cache
-      uses: actions/cache@v1
+      uses: actions/cache@v4
       id: yarn-cache
       with:
         path: ./node_modules
