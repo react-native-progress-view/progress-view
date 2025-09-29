@@ -18,15 +18,15 @@ class RNCProgressViewComponentDescriptor final
       : ConcreteComponentDescriptor(parameters),
         imageManager_(std::make_shared<ImageManager>(contextContainer_)) {}
 
-  void adopt(ShadowNode::Unshared const &shadowNode) const override {
+  void adopt(ShadowNode& shadowNode) const override {
     ConcreteComponentDescriptor::adopt(shadowNode);
 
-    auto progressViewhadowNode =
-        std::static_pointer_cast<RNCProgressViewShadowNode>(shadowNode);
+      auto& progressViewShadowNode =
+          static_cast<RNCProgressViewShadowNode&>(shadowNode);
 
     // `RNCProgressViewShadowNode` uses `ImageManager` to initiate image loading
     // and communicate the loading state and results to mounting layer.
-    progressViewhadowNode->setImageManager(imageManager_);
+      progressViewShadowNode.setImageManager(imageManager_);
   }
 
  private:

@@ -12,3 +12,5 @@ dist/
 local.properties
 msbuild.binlog
 node_modules/
+**/.xcode.env.local
+.kotlin/

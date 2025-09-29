@@ -32,8 +32,12 @@ Pod::Spec.new do |s|
       s.compiler_flags = folly_compiler_flags + ' -DRCT_NEW_ARCH_ENABLED=1'
 
       s.pod_target_xcconfig = {
-        'HEADER_SEARCH_PATHS' => '\'$(PODS_ROOT)/boost\'',
-        'OTHER_CPLUSPLUSFLAGS' => '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1',
+        "HEADER_SEARCH_PATHS" => [
+          '"$(PODS_ROOT)/../build/generated/ios"',
+          '"$(PODS_ROOT)/boost"',
+          '"$(PODS_ROOT)/Headers/Private/Yoga"',
+        ].join(' '),
+        'OTHER_CPLUSPLUSFLAGS' => '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -DFOLLY_CFG_NO_COROUTINES=1',
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++17'
       }
 
@@ -43,6 +47,7 @@ Pod::Spec.new do |s|
       s.dependency 'ReactCommon/turbomodule/core'
       ss.dependency 'React-Codegen'
       ss.dependency 'React-RCTFabric'
+      ss.dependency 'React-Core'
       ss.dependency 'react-native-progress-view/common'
       ss.source_files         = 'ios/Fabric/**/*.{h,m,mm}'
       ss.pod_target_xcconfig  = { 'HEADER_SEARCH_PATHS' => '\'$(PODS_TARGET_SRCROOT)/common/cpp\'' }
