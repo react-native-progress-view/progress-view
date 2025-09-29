@@ -19,6 +19,8 @@ Pod::Spec.new do |s|
   s.ios.exclude_files= 'ios/Fabric'
   s.osx.source_files = 'macos/**/*.{h,m}'
 
+  install_modules_dependencies(s)
+
   if fabric_enabled
     folly_compiler_flags = '-DFOLLY_NO_CONFIG -DFOLLY_MOBILE=1 -DFOLLY_USE_LIBCPP=1 -Wno-comma -Wno-shorten-64-to-32'
 
@@ -41,17 +43,10 @@ Pod::Spec.new do |s|
         'CLANG_CXX_LANGUAGE_STANDARD' => 'c++17'
       }
 
-      s.dependency 'RCT-Folly'
-      s.dependency 'RCTRequired'
-      s.dependency 'RCTTypeSafety'
-      s.dependency 'ReactCommon/turbomodule/core'
-      ss.dependency 'React-Codegen'
-      ss.dependency 'React-RCTFabric'
-      ss.dependency 'React-Core'
-      ss.dependency 'React-utils'
       ss.dependency 'react-native-progress-view/common'
-      ss.source_files         = 'ios/Fabric/**/*.{h,m,mm}'
       ss.pod_target_xcconfig  = { 'HEADER_SEARCH_PATHS' => '\'$(PODS_TARGET_SRCROOT)/common/cpp\'' }
+      ss.source_files = 'ios/Fabric/**/*.{h,m,mm}'
+      install_modules_dependencies(ss)
     end
   else
     s.dependency 'React-Core'
