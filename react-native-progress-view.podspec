@@ -48,6 +48,7 @@ Pod::Spec.new do |s|
       ss.dependency 'React-Codegen'
       ss.dependency 'React-RCTFabric'
       ss.dependency 'React-Core'
+      ss.dependency 'React-utils'
       ss.dependency 'react-native-progress-view/common'
       ss.source_files         = 'ios/Fabric/**/*.{h,m,mm}'
       ss.pod_target_xcconfig  = { 'HEADER_SEARCH_PATHS' => '\'$(PODS_TARGET_SRCROOT)/common/cpp\'' }
