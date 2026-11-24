@@ -122,10 +122,10 @@ jobs:
       # boost.podspec; archives.boost.io hosts the identical file (same sha256).
       - name: Patch boost podspec URL
         run: sed -i '' 's|https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2|https://archives.boost.io/release/1.76.0/source/boost_1_76_0.tar.bz2|' example/node_modules/react-native/third-party-podspecs/boost.podspec
-      # Newer clang (Xcode 26) errors on `operator"" _pt` under Yoga's -Werror;
-      # drop the space as upstream React Native did.
-      - name: Patch Yoga literal operators
-        run: sed -i '' 's/operator"" _/operator""_/g' example/node_modules/react-native/ReactCommon/yoga/yoga/YGValue.h
+      # RN 0.68's Yoga builds with -Werror, and newer clang (Xcode 26) adds
+      # warnings it trips (-Wdeprecated-literal-operator, -Wbitwise-instead-of-logical).
+      - name: Drop -Werror from Yoga podspec
+        run: sed -i '' "/'-Werror',/d" example/node_modules/react-native/ReactCommon/yoga/Yoga.podspec
       - name: Install Podfiles
         run: cd example && pod install --project-directory=ios
       # The CLI defaults to an "iPhone 13" simulator, which current runner
