@@ -14,7 +14,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Get yarn cache
         id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> "$GITHUB_OUTPUT"
       - uses: actions/cache@v4
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
@@ -35,7 +35,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Get yarn cache
         id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> "$GITHUB_OUTPUT"
       - uses: actions/cache@v4
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
@@ -56,7 +56,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Get yarn cache
         id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> "$GITHUB_OUTPUT"
       - uses: actions/cache@v4
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
@@ -82,7 +82,7 @@ jobs:
           java-version: ${{ matrix.java-version }}
       - name: Get yarn cache
         id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> "$GITHUB_OUTPUT"
       - uses: actions/cache@v4
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
@@ -107,7 +107,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Get yarn cache
         id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> "$GITHUB_OUTPUT"
       - uses: actions/cache@v4
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
@@ -118,7 +118,20 @@ jobs:
         run: cd example && yarn
       - name: Build ios
         run: cd example && yarn build:ios
+      # boostorg.jfrog.io no longer serves the tarball referenced by RN 0.68's
+      # boost.podspec; archives.boost.io hosts the identical file (same sha256).
+      - name: Patch boost podspec URL
+        run: sed -i '' 's|https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2|https://archives.boost.io/release/1.76.0/source/boost_1_76_0.tar.bz2|' example/node_modules/react-native/third-party-podspecs/boost.podspec
+      # RN 0.68's Yoga builds with -Werror, and newer clang (Xcode 26) adds
+      # warnings it trips (-Wdeprecated-literal-operator, -Wbitwise-instead-of-logical).
+      - name: Drop -Werror from Yoga podspec
+        run: sed -i '' "/'-Werror',/d" example/node_modules/react-native/ReactCommon/yoga/Yoga.podspec
       - name: Install Podfiles
         run: cd example && pod install --project-directory=ios
+      # The CLI defaults to an "iPhone 13" simulator, which current runner
+      # images no longer ship; pick whichever iPhone simulator is available.
       - name: Build example app
-        run: yarn ios
+        run: |
+          UDID=$(xcrun simctl list devices available -j | jq -r '[.devices[][] | select(.name | startswith("iPhone"))][0].udid')
+          echo "Using simulator $UDID"
+          cd example && npx react-native run-ios --udid "$UDID"
