@@ -30,16 +30,15 @@ jobs:
       uses: actions/cache@v4
       id: yarn-cache
       with:
-        path: |
-          ./node_modules
-          ./example/node_modules
-        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock', 'example/yarn.lock') }}
+        path: ./node_modules
+        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
     - name: Install node modules
       if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: yarn --pure-lockfile
 
+    # Always install: example/node_modules holds a copy of this library ("../"),
+    # which must reflect the PR rather than a cached copy.
     - name: Install example node modules
-      if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: cd example && yarn
 
     - name: Build Windows
