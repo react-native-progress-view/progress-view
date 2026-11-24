@@ -1,5 +1,9 @@
 require_relative '../node_modules/react-native-test-app/test_app'
 
+# Flipper is deprecated and does not build with newer Xcode. react-native-test-app
+# enables it unless explicitly turned off.
+use_flipper!(false)
+
 workspace 'example.xcworkspace'
 
 use_test_app!
