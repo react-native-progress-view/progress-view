@@ -6,6 +6,18 @@
  */
 
 const path = require('path');
+const pack = require('../package.json');
+
+// The library is linked from the repository root (`link:../` in package.json).
+// Metro in RN 0.68 doesn't follow symlinks, so resolve the library and its peer
+// dependencies explicitly, and keep the root's own copies of the peers out of
+// the bundle so only the example's react/react-native are used.
+const root = path.resolve(__dirname, '..');
+const peers = Object.keys(pack.peerDependencies);
+
+// Forward slashes, regex-escaped; exclusionList maps `/` to the platform separator.
+const toPattern = (p) =>
+  p.replace(/\\/g, '/').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 const exclusionList = (() => {
   try {
@@ -32,12 +44,25 @@ const blockList = exclusionList([
 
   // Workaround for `EBUSY: resource busy or locked, open '~\msbuild.ProjectImports.zip'`
   /.*\.ProjectImports\.zip/,
+
+  ...peers.map(
+    (m) => new RegExp(`^${toPattern(path.join(root, 'node_modules', m))}/.*$`),
+  ),
 ]);
 
 module.exports = {
+  projectRoot: __dirname,
+  watchFolders: [root],
   resolver: {
     blacklistRE: blockList,
     blockList,
+    extraNodeModules: peers.reduce(
+      (acc, name) => {
+        acc[name] = path.join(__dirname, 'node_modules', name);
+        return acc;
+      },
+      {[pack.name]: root},
+    ),
   },
   transformer: {
     getTransformOptions: async () => ({

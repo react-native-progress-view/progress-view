@@ -30,10 +30,14 @@ const config = {
   resolver: {
     blockList,
     blacklistRE: blockList,
-    extraNodeModules: modules.reduce((acc, name) => {
-      acc[name] = path.join(__dirname, 'node_modules', name);
-      return acc;
-    }, {}),
+    // The library itself is a `link:../` symlink, which Metro may not follow.
+    extraNodeModules: modules.reduce(
+      (acc, name) => {
+        acc[name] = path.join(__dirname, 'node_modules', name);
+        return acc;
+      },
+      {[pack.name]: root},
+    ),
     assetExts: [...getDefaultConfig(__dirname).resolver.assetExts, 'png'],
   },
   transformer: {
