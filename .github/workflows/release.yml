@@ -32,6 +32,18 @@ on:
   # Manual escape hatch, e.g. to retry a release that failed partway through.
   # Note this path does not check Build, so only run it on a commit you know is green.
   workflow_dispatch:
+    inputs:
+      increment:
+        description: >-
+          Version bump. "auto" derives it from conventional commits since the last
+          tag, and releases nothing if none of them is a feat/fix/perf/breaking change.
+        type: choice
+        default: auto
+        options:
+          - auto
+          - patch
+          - minor
+          - major
 
 concurrency:
   group: release
@@ -82,8 +94,8 @@ jobs:
             fi
           fi
 
-          # A manual run is an explicit request to release; release-it bumps at
-          # least a patch even when no commit since the last tag is conventional.
+          # A manual run is an explicit request to release. With increment "auto"
+          # and no releasable commit, release-it itself exits without releasing.
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "release=true" >> "$GITHUB_OUTPUT"
             exit 0
@@ -159,9 +171,15 @@ jobs:
 
       - name: Release
         if: steps.guard.outputs.release == 'true'
-        run: yarn release --ci
+        run: |
+          if [ -n "$INCREMENT" ] && [ "$INCREMENT" != "auto" ]; then
+            yarn release "$INCREMENT" --ci
+          else
+            yarn release --ci
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INCREMENT: ${{ inputs.increment }}
           # No npm credential here on purpose: `npm publish` picks up the OIDC
           # token from the id-token permission above. Setting NODE_AUTH_TOKEN
           # would take precedence and put us back on a 2FA-gated token.
