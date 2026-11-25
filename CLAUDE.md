@@ -11,17 +11,15 @@ This is `@react-native-community/progress-view`, a React Native library providin
 ### Essential Commands
 - `yarn lint` - Run ESLint on the codebase
 - `yarn test` - Run Jest tests for JavaScript components
-- `yarn test:windows` - Run Windows-specific tests
 - `yarn type-check` - Run TypeScript type checking
 - `yarn flow` - Run Flow type checking
 
 ### Platform-Specific Development
-- `yarn ios` - Run iOS example app
-- `yarn android` - Run Android example app  
-- `yarn windows` - Run Windows example app
-- `yarn start` - Start Metro bundler
-- `yarn start:macos` - Start Metro for macOS
-- `yarn start:windows` - Start Metro for Windows
+- `yarn start` - Start Metro bundler (all platforms, via `@rnx-kit/metro-config`)
+- `yarn ios` - Run iOS example app (after `pod install` in `example/ios`)
+- `yarn android` - Run Android example app (after `yarn generate:android-manifest`)
+- `yarn macos` - Run macOS example app (after `pod install` in `example/macos`)
+- `yarn windows` - Run Windows example app (after `npx install-windows-test-app --project-directory example/windows`)
 
 ### Testing Individual Components
 - `yarn test js/__tests__/*` - Run specific test files
@@ -88,5 +86,4 @@ Each platform has slightly different prop support:
 
 ### Testing Strategy
 - Unit tests focus on component rendering and prop validation
-- Platform-specific test setups in `jest-setups/`
-- Example apps in `example/` and `fabric-example/` for manual testing
+- A single example app in `example/` (react-native-test-app, same layout as react-native-menu/menu). It has no package.json of its own: its dependencies are the root devDependencies, and the root `react-native.config.js` / `metro.config.js` point at it. Old vs new architecture is chosen at build time (`RCT_NEW_ARCH_ENABLED` for iOS pods, `-PnewArchEnabled` for Android); CI builds both.

@@ -97,24 +97,23 @@ Add ProgressView like this
 
 ### Running Example App
 
-#### Windows
-1. Clone branch 
-2. cd into progress_view and run `yarn install`
-3. Start metro server with `yarn start:windows`
-4. Open Visual Studios and open `example/windows/ProgressViewExample.sln`
-5. Set to Debug x64 and start solution
+The example app in `example/` is a [react-native-test-app](https://github.com/microsoft/react-native-test-app) project that uses the dependencies of the repository root. Run `yarn` in the repository root first, and `yarn start` to start Metro.
 
-#### IOS
-1. Clone branch
-2. cd into progress-view and run `yarn install`
-2. cd into example/ios and run `pod install`
-4. cd back into progress-view and run `yarn ios`
+#### iOS
+1. `cd example/ios && pod install` (set `RCT_NEW_ARCH_ENABLED=0` for the old architecture)
+2. From the repository root, run `yarn ios`
+
+#### Android
+1. `yarn generate:android-manifest`
+2. Run `yarn android` (pass `-PnewArchEnabled=false` to Gradle for the old architecture)
 
 #### macOS
-1. Clone branch
-2. cd into progress-view and run `yarn install`
-2. cd into example/macos/example/macos and run `pod install`
-4. Open the newly created example.xcworkspace in Xcode, build, and run
+1. `cd example/macos && pod install`
+2. Open `example/macos/ProgressViewExample.xcworkspace` in Xcode, build, and run
+
+#### Windows
+1. `npx install-windows-test-app --project-directory example/windows`
+2. Run `yarn windows`, or open `example/windows/ProgressViewExample.sln` in Visual Studio, set Debug x64 and start the solution
 
 ## Reference
 

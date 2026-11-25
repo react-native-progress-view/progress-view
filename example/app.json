@@ -1,10 +1,10 @@
 {
-  "name": "example",
-  "displayName": "example",
+  "name": "ProgressViewExample",
+  "displayName": "ProgressViewExample",
   "components": [
     {
-      "appKey": "example",
-      "displayName": "example"
+      "appKey": "ProgressViewExample",
+      "displayName": "ProgressViewExample"
     }
   ],
   "resources": {
