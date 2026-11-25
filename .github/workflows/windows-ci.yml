@@ -5,55 +5,28 @@ jobs:
   run-windows-tests:
     name: Build & run tests
     runs-on: windows-2022
-    strategy:
-      matrix:
-        node-version: [22]
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       name: Checkout Code
 
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
-        node-version: ${{ matrix.node-version }}
-        
+        node-version: 22
+
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v2
       with:
         vs-version: "[17.0,18.0)"
 
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v2
-
-    - name: Check node modules cache
-      uses: actions/cache@v4
-      id: yarn-cache
-      with:
-        path: ./node_modules
-        key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
     - name: Install node modules
-      if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: yarn install --immutable
 
-    # Not covered by the cache above, which is keyed on the root lockfile only.
-    - name: Install example node modules
-      run: cd example && yarn
+    - name: Bundle example app for Windows
+      run: npx react-native bundle --entry-file index.js --platform windows --dev true --bundle-output example/dist/main.windows.bundle --assets-dest example/dist/assets
 
-    - name: Build Windows
-      run: cd example && yarn build:windows
-
-    # react-native-test-app 2.x spawns npx.cmd without `shell: true`, which
-    # Node >= 18.20.2 rejects with EINVAL (CVE-2024-27980), so autolink separately.
+    # Generates example/windows/ProgressViewExample.sln and autolinks it.
+    # Building the solution is tracked in #66.
     - name: Generate Windows App
-      run: cd example && npx install-windows-test-app --use-nuget --no-autolink
-
-    - name: Autolink Windows App
-      run: cd example && npx react-native autolink-windows --proj node_modules/.generated/windows/ReactTestApp/ReactTestApp.vcxproj
-     
-    # - name: Start Appium server
-    #   shell: powershell
-    #   run: Start-Process PowerShell -ArgumentList "yarn appium"
-      
-    # - name: Run tests
-    #   run: yarn test:windows
+      run: npx install-windows-test-app --project-directory example/windows

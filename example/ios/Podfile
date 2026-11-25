@@ -1,30 +1,9 @@
-require_relative '../node_modules/react-native-test-app/test_app'
+ws_dir = Pathname.new(__dir__)
+ws_dir = ws_dir.parent until
+  File.exist?("#{ws_dir}/node_modules/react-native-test-app/test_app.rb") ||
+  ws_dir.expand_path.to_s == '/'
+require "#{ws_dir}/node_modules/react-native-test-app/test_app.rb"
 
-# Flipper is deprecated and does not build with newer Xcode. react-native-test-app
-# enables it unless explicitly turned off.
-use_flipper!(false)
-
-workspace 'example.xcworkspace'
+workspace 'ProgressViewExample.xcworkspace'
 
 use_test_app!
-
-# React Native 0.68's dependencies (boost 1.76, Folly) rely on C++ library
-# features that newer Xcode versions removed or now reject. `use_test_app!`
-# already registers the single `post_install` hook CocoaPods allows, so wrap it.
-test_app_post_install = @post_install_callback
-@post_install_callback = nil
-post_install do |installer|
-  test_app_post_install&.call(installer)
-
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      defs = Array(config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] || '$(inherited)')
-      defs << '_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION'
-      config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] = defs
-
-      flags = Array(config.build_settings['OTHER_CPLUSPLUSFLAGS'] || '$(inherited)')
-      flags << '-Wno-error=enum-constexpr-conversion'
-      config.build_settings['OTHER_CPLUSPLUSFLAGS'] = flags
-    end
-  end
-end

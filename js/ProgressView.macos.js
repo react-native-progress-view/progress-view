@@ -57,7 +57,9 @@ type Props = $ReadOnly<{|
  */
 const ProgressViewIOS = (
   props: Props,
-  forwardedRef?: ?React.Ref<typeof RNCProgressViewNativeComponent>,
+  forwardedRef?: ?React.RefSetter<
+    React.ElementRef<typeof RNCProgressViewNativeComponent>,
+  >,
 ) => (
   <RNCProgressViewNativeComponent
     {...props}
