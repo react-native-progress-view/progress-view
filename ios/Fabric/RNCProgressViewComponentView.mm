@@ -186,11 +186,14 @@ static UIProgressViewStyle progressViewStyle(RNCProgressViewProgressViewStyle co
   }
 }
 
-- (void)didReceiveProgress:(float)progress fromObserver:(void const *)observer
+- (void)didReceiveProgress:(float)progress
+                    loaded:(int64_t)loaded
+                     total:(int64_t)total
+              fromObserver:(void const *)observer
 {
 }
 
-- (void)didReceiveFailureFromObserver:(void const *)observer
+- (void)didReceiveFailure:(NSError *)error fromObserver:(void const *)observer
 {
 }
 
