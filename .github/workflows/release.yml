@@ -156,12 +156,9 @@ jobs:
           npm install -g npm@^11.5.1
           npm --version
 
-      # `yarn.lock` is in Yarn Berry format while `packageManager` pins Yarn 1,
-      # so Yarn 1 re-resolves and would rewrite the lockfile. --pure-lockfile
-      # keeps the working tree clean, which release-it requires.
       - name: Install dependencies
         if: steps.guard.outputs.release == 'true'
-        run: yarn install --pure-lockfile
+        run: yarn install --immutable
 
       - name: Configure git identity
         if: steps.guard.outputs.release == 'true'

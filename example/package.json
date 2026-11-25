@@ -16,11 +16,11 @@
     "windows": "react-native run-windows --sln windows/example.sln"
   },
   "dependencies": {
+    "@react-native-community/progress-view": "link:../",
     "react": "17.0.2",
     "react-native": "0.68.3",
     "react-native-macos": "^0.68.0",
-    "react-native-windows": "^0.68.0",
-    "@react-native-community/progress-view": "../"
+    "react-native-windows": "^0.68.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

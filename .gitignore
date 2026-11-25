@@ -52,5 +52,7 @@ buck-out/
 #VS code
 .vscode/**
 
-# yarn
-.yarn
+# yarn (the release under .yarn/releases is committed; see .yarnrc.yml)
+**/.yarn/*
+!/.yarn/releases
+.pnp.*

@@ -34,10 +34,9 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
     - name: Install node modules
       if: steps.yarn-cache.outputs.cache-hit != 'true'
-      run: yarn --pure-lockfile
+      run: yarn install --immutable
 
-    # Always install: example/node_modules holds a copy of this library ("../"),
-    # which must reflect the PR rather than a cached copy.
+    # Not covered by the cache above, which is keyed on the root lockfile only.
     - name: Install example node modules
       run: cd example && yarn
 
