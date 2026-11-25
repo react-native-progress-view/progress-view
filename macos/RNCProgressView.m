@@ -21,14 +21,14 @@
   return self;
 }
 
-- (void)setProgressImage:(UIImage *)progressImage
+- (void)setProgressImage:(RNCProgressViewImage *)progressImage
 {
   progressImage.capInsets = NSEdgeInsetsMake(0, progressImage.size.width-0.5, 0, 0);
   progressImage.resizingMode = NSImageResizingModeStretch;
   _progressImage = progressImage;
 }
 
-- (void)setTrackImage:(UIImage *)trackImage
+- (void)setTrackImage:(RNCProgressViewImage *)trackImage
 {
   trackImage.capInsets = NSEdgeInsetsMake(0, 0, 0, trackImage.size.width-0.5);
   trackImage.resizingMode = NSImageResizingModeStretch;
