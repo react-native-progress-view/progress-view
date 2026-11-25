@@ -45,7 +45,9 @@ Pod::Spec.new do |s|
 
       ss.dependency 'react-native-progress-view/common'
       ss.pod_target_xcconfig  = { 'HEADER_SEARCH_PATHS' => '\'$(PODS_TARGET_SRCROOT)/common/cpp\'' }
-      ss.source_files = 'ios/Fabric/**/*.{h,m,mm}'
+      # The Fabric component view is UIKit-only; macOS keeps using the legacy
+      # view through the interop layer.
+      ss.ios.source_files = 'ios/Fabric/**/*.{h,m,mm}'
       install_modules_dependencies(ss)
     end
   else
